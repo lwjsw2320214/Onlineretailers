@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Onlineretailers.iml" filepath="$PROJECT_DIR$/Onlineretailers.iml" />
+      <module fileurl="file://E:/auexpressapi/auexpressapi.iml" filepath="E:/auexpressapi/auexpressapi.iml" />
       <module fileurl="file://E:/project/auexpressapi/auexpressapi.iml" filepath="E:/project/auexpressapi/auexpressapi.iml" />
     </modules>
   </component>

@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 public class LogInterceptor  implements HandlerInterceptor {
 
     /**
-     * 日志对象
+     * 日志对象1
      */
     protected Logger logger = LoggerFactory.getLogger(getClass());
 

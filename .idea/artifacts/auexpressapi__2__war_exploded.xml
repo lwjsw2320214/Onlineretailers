@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="auexpressapi:war exploded">
+  <artifact type="exploded-war" name="auexpressapi (2):war exploded">
     <output-path>E:/auexpressapi/target/auexpress-api</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="auexpressapi" />
+          <element id="module-output" name="auexpressapi (2)" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.1.RELEASE" />
@@ -40,7 +40,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="E:/auexpressapi/target/auexpress-api/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="auexpressapi/web/Web" />
+      <element id="javaee-facet-resources" facet="auexpressapi (2)/web/Web" />
     </root>
   </artifact>
 </component>
