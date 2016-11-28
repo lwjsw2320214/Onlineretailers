@@ -14,7 +14,7 @@
       <module name="auexpressapi" target="1.5" />
       <module name="auexpressapi (1)" target="1.5" />
       <module name="auexpressapi (2)" target="1.5" />
-      <module name="Onlineretailers" target="1.5" />
+      <module name="Onlineretailers" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
