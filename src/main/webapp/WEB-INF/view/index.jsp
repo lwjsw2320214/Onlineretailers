@@ -7,5 +7,9 @@
 <body>
 ${title}
  <c:if test="${i==1}">123</c:if>
+
+<c:forEach items="${list}" var="item">
+    <div>${item.id},${item.menuName}</div>
+</c:forEach>
 </body>
 </html>
