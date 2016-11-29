@@ -873,7 +873,7 @@
       <workItem from="1480343252612" duration="4218000" />
       <workItem from="1480425416485" duration="3289000" />
       <workItem from="1480431227542" duration="6717000" />
-      <workItem from="1480440942894" duration="63000" />
+      <workItem from="1480440942894" duration="164000" />
     </task>
     <task id="LOCAL-00001" summary="更改maven 名称">
       <created>1480267534972</created>
@@ -945,11 +945,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480440613665</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="排除.idea文件夹">
+      <created>1480441039009</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1480441039009</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36799000" />
+    <option name="totallyTimeSpent" value="36900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1045,7 +1052,8 @@
     <MESSAGE value=" 登录页面整合" />
     <MESSAGE value=" 增加Hibernate-validator模型验证，" />
     <MESSAGE value="静态资源的访问配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="静态资源的访问配置" />
+    <MESSAGE value="排除.idea文件夹" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除.idea文件夹" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
