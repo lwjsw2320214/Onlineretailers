@@ -73,4 +73,28 @@
     <!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务  -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
+    <!--权限控制-->
+    <!--配置权限管理器-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="roleShiro"/>
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/main"/>
+        <property name="unauthorizedUrl" value="/404"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /static/** = anon
+                /loing=anon
+                /loingOut=anon
+                /**=authc
+            </value>
+        </property>
+    </bean>
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+     <bean id="lifecycleBeanPostProcessor"  class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <bean id="roleShiro" class="com.retailers.common.RoleShiro"/>
 </beans>

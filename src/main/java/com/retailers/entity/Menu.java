@@ -10,7 +10,9 @@ public class Menu {
     private String urlPath;
     private String ioc;
     private Integer pid;
+    private String permission;
     private String menuDescription;
+    private  char show;
 
     public Integer getId() {
         return id;
@@ -52,11 +54,27 @@ public class Menu {
         this.pid = pid;
     }
 
+    public String getPermission() {
+        return permission;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
     public String getMenuDescription() {
         return menuDescription;
     }
 
     public void setMenuDescription(String menuDescription) {
         this.menuDescription = menuDescription;
+    }
+
+    public char getShow() {
+        return show;
+    }
+
+    public void setShow(char show) {
+        this.show = show;
     }
 }
