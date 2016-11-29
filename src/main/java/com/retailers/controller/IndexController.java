@@ -31,6 +31,6 @@ public class IndexController {
         list1.add("第三张张图片");
         list1.add("第四张图片");
         list1.add("第五张图片");
-        return "view/index";
+        return "index";
     }
 }
