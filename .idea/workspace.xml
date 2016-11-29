@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="798cc4a8-32e3-4eb0-8866-c6f7557e5571" name="Default" comment="更改maven 名称">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/retailers/entity/LoginUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Onlineretailers_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Onlineretailers_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Onlineretailers.iml" afterPath="$PROJECT_DIR$/Onlineretailers.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/retailers/controller/Login.java" afterPath="$PROJECT_DIR$/src/main/java/com/retailers/controller/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring-servlet.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-servlet.xml" />
       <change type="MODIFICATION" beforePath="E:/auexpressapi/.idea/misc.xml" afterPath="E:/auexpressapi/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="E:/auexpressapi/.idea/workspace.xml" afterPath="E:/auexpressapi/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="E:/auexpressapi/auexpressapi.iml" afterPath="E:/auexpressapi/auexpressapi.iml" />
@@ -61,28 +56,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spring-servlet.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spring-servlet.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/spring-servlet.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginUser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/retailers/entity/LoginUser.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-                <element signature="e#923#924#0" expanded="true" />
-                <element signature="e#963#964#0" expanded="true" />
-              </folding>
+              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -130,7 +109,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/retailers/common/LogInterceptor.java" />
         <option value="E:/auexpressapi/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-content.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/retailers/controller/IndexController.java" />
@@ -138,6 +116,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/retailers/controller/Login.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/retailers/entity/LoginUser.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-servlet.xml" />
       </list>
     </option>
   </component>
@@ -893,7 +872,7 @@
       <workItem from="1480338754735" duration="599000" />
       <workItem from="1480343252612" duration="4218000" />
       <workItem from="1480425416485" duration="3289000" />
-      <workItem from="1480431227542" duration="6202000" />
+      <workItem from="1480431227542" duration="6421000" />
     </task>
     <task id="LOCAL-00001" summary="更改maven 名称">
       <created>1480267534972</created>
@@ -951,11 +930,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480435006021</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=" 增加Hibernate-validator模型验证，">
+      <created>1480440415631</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1480440415631</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36221000" />
+    <option name="totallyTimeSpent" value="36440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1049,7 +1035,8 @@
     <MESSAGE value="配置设置" />
     <MESSAGE value="更改maven 名称" />
     <MESSAGE value=" 登录页面整合" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 登录页面整合" />
+    <MESSAGE value=" 增加Hibernate-validator模型验证，" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 增加Hibernate-validator模型验证，" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1226,14 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/retailers/controller/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -1254,8 +1233,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/retailers/entity/LoginUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="380">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#844#845#0" expanded="true" />
@@ -1263,6 +1242,14 @@
             <element signature="e#923#924#0" expanded="true" />
             <element signature="e#963#964#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

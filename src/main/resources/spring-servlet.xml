@@ -15,6 +15,7 @@
     <mvc:interceptors>
         <bean class="com.retailers.common.LogInterceptor"/>
     </mvc:interceptors>
+    <!--增加静态资源的访问-->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
     <!--对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
