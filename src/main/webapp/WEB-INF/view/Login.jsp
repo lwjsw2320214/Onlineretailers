@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -22,19 +23,22 @@
             <h1 class="logo-name">MB</h1>
 
         </div>
-        <h3>欢迎使用本后台</h3>
+        <h3>欢迎使用!</h3>
         <p>
         </p>
-        <p>请输入登录的信息</p>
-        <form class="m-t" role="form" action="index.html">
+        <form:form action="/login" modelAttribute="loginUser">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="用户名" required="">
+                <form:input path="userName"  cssClass="form-control" placeholder="用户名"/>
+                <%--<input type="email" class="form-control" placeholder="用户名" required="">--%>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="密码" required="">
+                <form:password path="password" cssClass="form-control" placeholder="密码"/>
+                <%--<input type="password" class="form-control" placeholder="密码" required="">--%>
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
-        </form>
+            <p><form:errors path="userName" cssClass="alert-danger"/></p>
+            <p><form:errors path="password" cssClass="alert-danger"/></p>
+        </form:form>
     </div>
 </div>
 
