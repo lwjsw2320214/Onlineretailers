@@ -38,6 +38,7 @@
             <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
             <p><form:errors path="userName" cssClass="alert-danger"/></p>
             <p><form:errors path="password" cssClass="alert-danger"/></p>
+
         </form:form>
     </div>
 </div>
