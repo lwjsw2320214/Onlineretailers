@@ -1,6 +1,6 @@
 package com.retailers.service;
 
-import com.retailers.dao.IMenu;
+import com.retailers.dao.IMenuDao;
 import com.retailers.entity.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
 public class MenuService {
 
     @Autowired
-    IMenu dao;
+    IMenuDao dao;
 
     public List<Menu> getAll(){
         return  dao.getAll();

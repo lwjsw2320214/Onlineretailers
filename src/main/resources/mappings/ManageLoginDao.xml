@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.retailers.dao.IManageLoginDao">
+
+    <sql id="userFullNameColumns">
+        a.id AS "id",
+        a.login_name AS "loginMame",
+        a.login_password AS "loginPassword",
+        a.real_name AS "realRame",
+        a.office_id AS "officeId",
+        a.position AS "position",
+        a.email AS "email",
+        a.phone AS "phone",
+        a.mobile AS "mobile",
+        a.user_type AS "userType",
+        a.remarks AS "remarks",
+        a.login_flag AS "loginFlag",
+        a.del_flag AS "delFlag"
+    </sql>
+
+     <select id="getUserForUserName" resultType="ManageLogin">
+         SELECT  
+         <include refid="userFullNameColumns"/>
+         FROM   manage_login  a
+         <where>
+             a.login_name=#{loginMame}
+         </where>
+
+     </select>
+
+</mapper>
