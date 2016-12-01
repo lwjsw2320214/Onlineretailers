@@ -137,11 +137,17 @@
     </dependency>
 
     <!--模型验证框架-->
-
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>${validator.version}</version>
+    </dependency>
+
+    <!--编码框架-->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
     </dependency>
 
   </dependencies>

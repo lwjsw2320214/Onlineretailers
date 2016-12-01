@@ -1,5 +1,6 @@
 package com.retailers.controller;
 
+import com.retailers.common.Encryption;
 import com.retailers.entity.LoginUser;
 import com.retailers.service.ManageLoginService;
 import org.apache.shiro.SecurityUtils;
@@ -19,7 +20,7 @@ import javax.validation.Valid;
  */
 @Controller
 @RequestMapping(value = "/login")
-public class Login {
+public class LoginController {
 
     @Autowired
     ManageLoginService service;
@@ -38,12 +39,16 @@ public class Login {
             return "Login";
         }
         Subject currentUser = SecurityUtils.getSubject();
-        UsernamePasswordToken token=new UsernamePasswordToken(loginUser.getUserName(),loginUser.getPassword());
+        Encryption encryption=new Encryption();
+
+        UsernamePasswordToken token=new UsernamePasswordToken(loginUser.getUserName(),encryption.md5Encryption(loginUser.getPassword()));
         try {
             currentUser.login(token);
-            return "redirect:/test";
+            return "redirect:/index";
         }catch (Exception e){
             token.clear();
+            model.addAttribute("loginUser",loginUser);
+            result.rejectValue("password","","用户名或者密码错误！");
             return "Login";
         }
     }

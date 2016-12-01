@@ -1,12 +1,18 @@
 package com.retailers.controller;
 
+import com.retailers.entity.LoginUser;
+import com.retailers.entity.ManageLogin;
 import com.retailers.entity.Menu;
 import com.retailers.service.MenuService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +29,6 @@ public class IndexController {
     @RequestMapping
     public String index(Model model){
         model.addAttribute("title","测试首页");
-       List<Menu> list= service.getAll();
-        model.addAttribute("list",list);
-
-        List<String> list1=new ArrayList<String>();
-         list1.add("第一张图片");
-        list1.add("第三张张图片");
-        list1.add("第四张图片");
-        list1.add("第五张图片");
-        return "index";
+         return "index";
     }
 }

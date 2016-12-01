@@ -2,11 +2,14 @@ package com.retailers.common;
 
 import com.retailers.entity.ManageLogin;
 import com.retailers.service.ManageLoginService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,11 +43,10 @@ public class RoleShiro extends AuthorizingRealm {
         manageLogin.setLoginName(upt.getUsername());
         ManageLogin ml=service.getUserForUserName(manageLogin);
         if (ml!=null){
-
-            return  new SimpleAuthenticationInfo(ml.getLoginName(),ml.getLoginPassword(),getName());
+            SimpleAuthenticationInfo simpleAuthenticationInfo=  new SimpleAuthenticationInfo(ml,ml.getLoginPassword(),getName());
+            return simpleAuthenticationInfo;
         }
         return null;
     }
-
 
 }
