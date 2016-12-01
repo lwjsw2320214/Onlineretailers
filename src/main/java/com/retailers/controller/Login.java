@@ -1,8 +1,10 @@
 package com.retailers.controller;
 
 import com.retailers.entity.LoginUser;
-import com.retailers.entity.ManageLogin;
 import com.retailers.service.ManageLoginService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,10 +37,14 @@ public class Login {
             model.addAttribute("loginUser",loginUser);
             return "Login";
         }
-        ManageLogin manageLogin=new ManageLogin();
-        manageLogin.setLoginMame("123");
-        service.getUserForUserName(manageLogin);
-        return "redirect:/test";
+        Subject currentUser = SecurityUtils.getSubject();
+        UsernamePasswordToken token=new UsernamePasswordToken(loginUser.getUserName(),loginUser.getPassword());
+        try {
+            currentUser.login(token);
+            return "redirect:/test";
+        }catch (Exception e){
+            token.clear();
+            return "Login";
+        }
     }
-
 }

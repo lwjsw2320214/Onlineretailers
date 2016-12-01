@@ -7,7 +7,7 @@ import com.retailers.common.Base.BaseEntity;
  */
 public class ManageLogin extends BaseEntity {
 
-      private  String loginMame;
+      private  String loginName;
     private  String loginPassword;
     private  String realRame;
     private  String officeId;
@@ -18,12 +18,12 @@ public class ManageLogin extends BaseEntity {
     private  String userType;
     private  String loginFlag;
 
-    public String getLoginMame() {
-        return loginMame;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setLoginMame(String loginMame) {
-        this.loginMame = loginMame;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public String getLoginPassword() {

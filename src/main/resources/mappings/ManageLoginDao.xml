@@ -4,7 +4,7 @@
 
     <sql id="userFullNameColumns">
         a.id AS "id",
-        a.login_name AS "loginMame",
+        a.login_name AS "loginName",
         a.login_password AS "loginPassword",
         a.real_name AS "realRame",
         a.office_id AS "officeId",
@@ -23,7 +23,7 @@
          <include refid="userFullNameColumns"/>
          FROM   manage_login  a
          <where>
-             a.login_name=#{loginMame}
+             a.login_name=#{loginName}
          </where>
 
      </select>
