@@ -40,7 +40,6 @@ public class LoginController {
         }
         Subject currentUser = SecurityUtils.getSubject();
         Encryption encryption=new Encryption();
-
         UsernamePasswordToken token=new UsernamePasswordToken(loginUser.getUserName(),encryption.md5Encryption(loginUser.getPassword()));
         try {
             currentUser.login(token);
