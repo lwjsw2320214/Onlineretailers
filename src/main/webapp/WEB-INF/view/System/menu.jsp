@@ -16,8 +16,8 @@
     <link href="/static/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
     <link href="/static/css/animate.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
-    <link href="/static/treeTable/css/jquery.treetable.css">
-    <link href="/static/treeTable/css/jquery.treetable.theme.default.css">
+    <link href="/static/treeTable/css/jquery.treetable.css" rel="stylesheet">
+    <link href="/static/treeTable/css/jquery.treetable.theme.default.css" rel="stylesheet">
 
     <!-- Mainly scripts -->
     <script src="/static/js/jquery-2.1.1.js"></script>
@@ -149,8 +149,19 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr data-tt-id="45" data-tt-parent-id="27">
-                                        <td><i class="icon- hide"></i> 首页</td>
+                                    <tr  data-tt-id="28" data-tt-parent-id="0">
+                                        <td><span class="fa fa-home"></span>菜单管理</td>
+                                        <td>/index</td>
+                                        <td class="text-right">
+                                            <div class="btn-group">
+                                                <a class="btn btn-default btn-sm" href="/menu/add/1"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/edit/1"><i class="fa fa-paste"></i> 修改</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/delete/1"><i class="fa fa-trash"></i> 删除</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-tt-id="45" data-tt-parent-id="28">
+                                        <td><i class="icon- hide"></i> 菜单管理</td>
                                         <td>/index</td>
                                         <td class="text-right">
                                             <div class="btn-group">
