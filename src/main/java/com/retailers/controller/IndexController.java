@@ -28,7 +28,6 @@ public class IndexController {
 
     @RequestMapping
     public String index(Model model){
-        model.addAttribute("title","测试首页");
          return "index";
     }
 }
