@@ -132,45 +132,31 @@
                             <table id="treeTable" class="table table-striped table-bordered table-condensed">
                                 <thead>
                                     <tr>
-                                        <th style="width: 33%">菜单名称</th>
-                                        <th style="width: 33%">URL地址</th>
-                                        <th style="width: 33%" class="text-right">操作</th>
+                                        <th>菜单名称</th>
+                                        <th>URL地址</th>
+                                        <th>排序</th>
+                                        <th>权限标识</th>
+                                        <th>是否显示</th>
+                                        <th class="text-right" style="width: 15%">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr  data-tt-id="27" data-tt-parent-id="0">
-                                        <td><span class="fa fa-home"></span>首页</td>
-                                        <td>/index</td>
+                                <c:forEach items="${list}"  var="menu">
+                                    <tr  data-tt-id="${menu.id}" data-tt-parent-id="${menu.parent.id}">
+                                        <td><span class="${menu.ioc}"></span>${menu.menuName}</td>
+                                        <td>${menu.urlPath}</td>
+                                        <td>${menu.sort}</td>
+                                        <td>${menu.permission}</td>
+                                        <td>${menu.showFlag eq '1' ?'显示':'隐藏'}</td>
                                         <td class="text-right">
                                             <div class="btn-group">
-                                                <a class="btn btn-default btn-sm" href="/menu/add/1"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/edit/1"><i class="fa fa-paste"></i> 修改</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/delete/1"><i class="fa fa-trash"></i> 删除</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/add/${menu.id}"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/edit/${menu.id}"><i class="fa fa-paste"></i> 修改</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/delete/${menu.id}"><i class="fa fa-trash"></i> 删除</a>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr  data-tt-id="28" data-tt-parent-id="0">
-                                        <td><span class="fa fa-home"></span>菜单管理</td>
-                                        <td>/index</td>
-                                        <td class="text-right">
-                                            <div class="btn-group">
-                                                <a class="btn btn-default btn-sm" href="/menu/add/1"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/edit/1"><i class="fa fa-paste"></i> 修改</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/delete/1"><i class="fa fa-trash"></i> 删除</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-tt-id="45" data-tt-parent-id="28">
-                                        <td><i class="icon- hide"></i> 菜单管理</td>
-                                        <td>/index</td>
-                                        <td class="text-right">
-                                            <div class="btn-group">
-                                                <a class="btn btn-default btn-sm" href="/menu/add/1"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/edit/1"><i class="fa fa-paste"></i> 修改</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/delete/1"><i class="fa fa-trash"></i> 删除</a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

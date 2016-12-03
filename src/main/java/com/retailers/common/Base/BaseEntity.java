@@ -13,10 +13,10 @@ public abstract class BaseEntity {
     /**
      * 删除标识(0:正常，1：删除)
      * */
-    private char delFlag;
+    private String delFlag;
 
     public BaseEntity(){
-        this.delFlag='0'; //默认赋值
+        this.delFlag="0"; //默认赋值
     }
 
     public String getId() {
@@ -35,11 +35,11 @@ public abstract class BaseEntity {
         this.remarks = remarks;
     }
 
-    public char getDelFlag() {
+    public String getDelFlag() {
         return delFlag;
     }
 
-    public void setDelFlag(char delFlag) {
+    public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
     }
 }

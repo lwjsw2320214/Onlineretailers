@@ -2,8 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.retailers.dao.IMenuDao">
 
+    <sql id="menuFullNameColumns">
+        a.id AS "id",
+        a.menu_name AS "menuName",
+        a.url_path AS "urlPath",
+        a.ioc AS "ioc",
+        a.pid AS "parent.id",
+        a.pid AS "pid",
+        a.permission AS "permission",
+        a.sort AS "sort",
+        a.remarks AS "remarks",
+        a.show_flag AS "showFlag",
+        a.del_flag AS "delFlag",
+        p.menu_name AS "parent.menuName"
+    </sql>
+
+    <sql id="menujoins">
+        LEFT JOIN  menu  p ON  p.id=a.pid
+    </sql>
+
+
     <select id="getAll" resultType="Menu">
-        SELECT * FROM  menu
+        SELECT 
+         <include refid="menuFullNameColumns"/>
+         FROM  menu a
+        <include refid="menujoins"/>
+        WHERE a.del_flag = '0'
+        ORDER  BY  a.sort
     </select>
 
 </mapper>

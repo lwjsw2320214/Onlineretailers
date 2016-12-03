@@ -12,7 +12,6 @@ import static javax.swing.text.StyleConstants.Size;
  */
 public class LoginUser implements Serializable {
     private  Integer id;
-
     @Size(max =18,min = 4,message = "用户名长度必须为{2}-{1}位的字符串")
     private  String userName;
     @Size(max =18,min = 4,message = "密码长度必须为{2}-{1}位的字符串")

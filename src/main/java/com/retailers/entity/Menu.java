@@ -1,26 +1,22 @@
 package com.retailers.entity;
 
+import com.retailers.common.Base.BaseEntity;
+
+import java.util.List;
+
 /**
  * Created by GC on 2016/11/10.
  */
-public class Menu {
+public class Menu extends BaseEntity {
 
-    private  Integer id;
+    private  Menu parent;
     private String menuName;
     private String urlPath;
     private String ioc;
-    private Integer pid;
+    private String pid;
     private String permission;
-    private String menuDescription;
-    private  char show;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private  Integer sort;
+    private  String showFlag;
 
     public String getMenuName() {
         return menuName;
@@ -46,11 +42,11 @@ public class Menu {
         this.ioc = ioc;
     }
 
-    public Integer getPid() {
+    public String getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(String pid) {
         this.pid = pid;
     }
 
@@ -62,19 +58,45 @@ public class Menu {
         this.permission = permission;
     }
 
-    public String getMenuDescription() {
-        return menuDescription;
+    public Integer getSort() {
+        return sort;
     }
 
-    public void setMenuDescription(String menuDescription) {
-        this.menuDescription = menuDescription;
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
-    public char getShow() {
-        return show;
+    public Menu getParent() {
+        return parent;
     }
 
-    public void setShow(char show) {
-        this.show = show;
+    public void setParent(Menu parent) {
+        this.parent = parent;
+    }
+
+    public String getShowFlag() {
+        return showFlag;
+    }
+
+    public void setShowFlag(String showFlag) {
+        this.showFlag = showFlag;
+    }
+
+    public  static  void  sortList(List<Menu> list,List<Menu> sourcelist ,String paerenId,boolean cascade){
+        for (int i=0;i<sourcelist.size();i++){
+            Menu e=sourcelist.get(i);
+            if(e.getParent()!=null&&e.getParent().getId()!=null&&e.getParent().getId().equals(paerenId)){
+                list.add(e);
+                if (cascade){
+                    for (int j=0;j<sourcelist.size();j++){
+                        Menu child=sourcelist.get(j);
+                        if (child.getParent()!=null&&e.getParent().getId()!=null&&child.getParent().getId().equals(e.getId())){
+                            sortList(list,sourcelist,e.getId(),true);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
