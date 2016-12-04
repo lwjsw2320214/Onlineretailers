@@ -4,15 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>官网后台 | 用户登陆</title>
-
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="/static/css/animate.css" rel="stylesheet">
-    <link href="/static/css/style.css" rel="stylesheet">
-
+    <jsp:include page="include/login_head.jsp"/>
 </head>
 <body class="gray-bg">
 
@@ -42,10 +35,5 @@
         </form:form>
     </div>
 </div>
-
-<!-- Mainly scripts -->
-<script src="/static/js/jquery-2.1.1.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-
 </body>
 </html>

@@ -27,12 +27,13 @@ public class LogInterceptor  implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
         if(modelAndView!=null){
+            long starttime=System.currentTimeMillis();
+            logger.debug(" 访问时间：{}",new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(starttime));
             logger.debug("ViewName:{}",modelAndView.getViewName());
         }
     }
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
-        long endtim=System.currentTimeMillis();
-        logger.debug(" 结束时间：{}",new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(endtim));
+
     }
 }

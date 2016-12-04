@@ -39,12 +39,14 @@ public class RoleShiro extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken upt=(UsernamePasswordToken) authenticationToken;
+        if (upt.getUsername()!=null){
         ManageLogin manageLogin=new ManageLogin();
         manageLogin.setLoginName(upt.getUsername());
         ManageLogin ml=service.getUserForUserName(manageLogin);
         if (ml!=null){
             SimpleAuthenticationInfo simpleAuthenticationInfo=  new SimpleAuthenticationInfo(ml,ml.getLoginPassword(),getName());
             return simpleAuthenticationInfo;
+        }
         }
         return null;
     }
