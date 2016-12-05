@@ -54,14 +54,14 @@
                     <div class="ibox">
                         <div class="ibox-content">
                             <table id="treeTable" class="table table-striped table-bordered table-condensed">
-                                <thead>
+                                <thead style="font-size: 12px">
                                     <tr>
-                                        <th>菜单名称</th>
+                                        <th >菜单名称</th>
                                         <th>URL地址</th>
                                         <th>排序</th>
                                         <th>权限标识</th>
                                         <th>是否显示</th>
-                                        <th class="text-right" style="width: 15%">操作</th>
+                                        <th class="text-right" style="width: 18%">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>

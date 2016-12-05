@@ -1,6 +1,8 @@
 package com.retailers.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.retailers.common.Base.BaseEntity;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.List;
 
@@ -10,6 +12,7 @@ import java.util.List;
 public class Menu extends BaseEntity {
 
     private  Menu parent;
+    @NotBlank(message = "请填写菜单名称！")
     private String menuName;
     private String urlPath;
     private String ioc;
@@ -75,13 +78,15 @@ public class Menu extends BaseEntity {
     }
 
     public String getShowFlag() {
-        return showFlag;
+        return showFlag==null?"1":showFlag;
     }
 
     public void setShowFlag(String showFlag) {
         this.showFlag = showFlag;
     }
 
+
+    @JsonIgnore
     public  static  void  sortList(List<Menu> list,List<Menu> sourcelist ,String paerenId,boolean cascade){
         for (int i=0;i<sourcelist.size();i++){
             Menu e=sourcelist.get(i);

@@ -17,6 +17,20 @@
     </mvc:interceptors>
     <!--增加静态资源的访问-->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+    <!--json-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+          <list>
+              <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                  <property name="supportedMediaTypes">
+                      <list>
+                          <value>text/html;charset=UTF-8</value>
+                      </list>
+                  </property>
+              </bean>
+          </list>
+        </property>
+    </bean>
     <!--对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix"  value="/WEB-INF/view/"/>
