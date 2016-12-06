@@ -56,6 +56,23 @@
                     <div class="ibox-content">
                         <form:form action="/menu/add" cssClass="form-horizontal"  modelAttribute="menu">
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">上级菜单：</label>
+                                <div class="col-sm-5">
+                                    <div class="input-group">
+                                        <input type="text" id="pname" class="form-control">
+                                        <form:hidden path="pid"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#menuList" id="showMenu">
+                                                <i class="fa fa-search"></i> 选择
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">菜单名称：</label>
                                 <div class="col-sm-5">
                                     <form:input path="menuName" cssClass="form-control"/>
@@ -78,6 +95,13 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">IOC图标：</label>
                                 <div class="col-sm-5">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iocList">
+                                                <i class="fa fa-search"></i> 选择</button>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-5">
                                 </div>
@@ -138,5 +162,91 @@
     </div>
 </div>
 
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="menuList" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="menuListLabel">
+                   选择菜单
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="zTreeDemoBackground left">
+                    <ul id="menuTree" class="ztree"></ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="menuSave" class="btn btn-primary" data-dismiss="modal">
+                    确定
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 模态框（Modal2） -->
+<div class="modal fade" id="iocList" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="iocListLabel">
+                    IOC图标
+                </h4>
+            </div>
+            <div class="modal-body">
+                按下 ESC 按钮退出。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    确定
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<link href="/static/ztree/css/zTreeStyle.css"  rel="stylesheet">
+<script src="/static/ztree/js/jquery.ztree.core.min.js"></script>
+<script>
+    var setting = {
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+    $(function () {
+        $("#showMenu").click(function () {
+            $.get("/menu/getTreeMenu",function (data){
+                var zNodes=data;
+                $.fn.zTree.init($("#menuTree"), setting, zNodes);
+            })
+        });
+
+        $("#menuSave").click(function () {
+            var treeObj = $.fn.zTree.getZTreeObj("menuTree");
+            var d=treeObj.getSelectedNodes();
+            if (d.length>0){
+                $("#pname").val(d[0].name);
+                $("#pid").val(d[0].id);
+            }
+        })
+    })
+
+</script>
 </body>
 </html>
