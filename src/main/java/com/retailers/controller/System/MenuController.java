@@ -2,13 +2,13 @@ package com.retailers.controller.System;
 
 import com.retailers.entity.Menu;
 import com.retailers.service.MenuService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -63,18 +63,67 @@ public class MenuController {
     /**
      *
      * */
-    @RequestMapping(value = "/add",method = RequestMethod.GET)
-    public  String add(Model model){
-        model.addAttribute("menu",new Menu());
+    @RequestMapping(value = "/add/{pid}",method = RequestMethod.GET)
+    public  String add(@PathVariable("pid")  String pid, Model model){
+        Menu menu=new Menu();
+        Menu p=new Menu();
+        p.setMenuName("功能菜单");
+        menu.setPid("0");
+        menu.setParent(p);
+        model.addAttribute("menu",menu);
         return "System/menuAdd";
     }
+
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public  String add(Model model, @Valid Menu menu,BindingResult result){
+    public  String add(Model model, @Valid Menu menu, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             model.addAttribute("menu",menu);
             return "System/menuAdd";
         }
+        Integer count=service.add(menu);
+        if (count>0){
+            redirectAttributes.addFlashAttribute("message","添加成功！");
+            return "redirect:/menu";
+        }
+        model.addAttribute("menu",menu);
         return "System/menuAdd";
+    }
+
+    @RequestMapping(value = "/edit/{id}",method = RequestMethod.GET)
+    public  String edit(@PathVariable String id,Model model){
+        Menu menu=service.getMenuForId(id);
+        if (StringUtils.isBlank(menu.getParent().getMenuName())){
+            menu.getParent().setMenuName("功能菜单");
+        }
+        model.addAttribute("menu",menu);
+        return "System/editMenu";
+    }
+
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    public String edit(Model model, @Valid Menu menu, BindingResult result, RedirectAttributes redirectAttributes){
+        if(result.hasErrors()){
+            model.addAttribute("menu",menu);
+            return "System/editMenu";
+        }
+        Integer count=service.edit(menu);
+        if (count>0) {
+            redirectAttributes.addFlashAttribute("message", "修改成功！");
+            return "redirect:/menu";
+        }
+        model.addAttribute("menu",menu);
+        return "System/editMenu";
+    }
+
+
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
+    public  String delete( @PathVariable String id,Model model, RedirectAttributes redirectAttributes){
+        Integer count=service.delete(id);
+        if (count>0) {
+            redirectAttributes.addFlashAttribute("message", "删除成功！");
+        }else {
+            redirectAttributes.addFlashAttribute("message", "删除失败！");
+        }
+        return "redirect:/menu";
     }
 
 }

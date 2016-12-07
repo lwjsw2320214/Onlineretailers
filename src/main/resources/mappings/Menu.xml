@@ -31,4 +31,55 @@
         ORDER  BY  a.sort
     </select>
 
+    <insert id="add">
+        INSERT  INTO menu
+        (id,menu_name,url_path,ioc,pid,permission,sort,remarks,show_flag,del_flag)
+        VALUES
+        (
+        #{id},
+        #{menuName},
+        #{urlPath},
+        #{ioc},
+        #{pid},
+        #{permission},
+        #{sort},
+        #{remarks},
+        #{showFlag},
+        #{delFlag}
+        )
+    </insert>
+
+    <select id="getMenuForId" resultType="Menu">
+        SELECT
+        <include refid="menuFullNameColumns"/>
+        FROM  menu a
+        <include refid="menujoins"/>
+        WHERE a.del_flag = '0'
+        AND a.id=#{id}
+    </select>
+
+    <update id="edit">
+        UPDATE menu
+        SET
+        menu_name=#{menuName},
+        url_path=#{urlPath},
+        ioc=#{ioc},
+        pid=#{pid},
+        permission=#{permission},
+        sort=#{sort},
+        remarks=#{remarks},
+        show_flag=#{showFlag},
+        del_flag=#{delFlag}
+        WHERE id=#{id}
+        AND a.del_flag = '0'
+    </update>
+
+    <update id="delete">
+        UPDATE
+        menu
+        SET
+        del_flag = '1'
+        WHERE id=#{id}
+    </update>
+
 </mapper>

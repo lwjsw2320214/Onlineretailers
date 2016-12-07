@@ -3682,7 +3682,7 @@ img.circle-border {
   margin-bottom: 10px;
 }
 .icons-box .infont a i {
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   color: #676a6c;
 }
@@ -3694,6 +3694,7 @@ img.circle-border {
   margin: 1px;
   display: block;
 }
+
 .ui-draggable .ibox-title {
   cursor: move;
 }
@@ -8226,4 +8227,6 @@ body.md-skin {
   #page-wrapper {
     margin: 0;
   }
+
+
 }

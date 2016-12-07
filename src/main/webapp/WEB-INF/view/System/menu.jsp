@@ -45,7 +45,8 @@
             <div class="ibox-content m-b-sm border-bottom">
                 <div class="row">
                     <div class="col-lg-12 text-right">
-                        <a href="/menu/add" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加菜单</a>
+
+                        <a href="/menu/add/" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加菜单</a>
                     </div>
                 </div>
             </div>
@@ -53,6 +54,12 @@
                 <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-content">
+                            <c:if test="${message!=null}">
+                            <div class="alert alert-success alert-dismissable">
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                ${message}
+                             </div>
+                            </c:if>
                             <table id="treeTable" class="table table-striped table-bordered table-condensed">
                                 <thead style="font-size: 12px">
                                     <tr>
@@ -76,7 +83,7 @@
                                             <div class="btn-group">
                                                 <a class="btn btn-default btn-sm" href="/menu/add/${menu.id}"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
                                                 <a class="btn btn-default btn-sm" href="/menu/edit/${menu.id}"><i class="fa fa-paste"></i> 修改</a>
-                                                <a class="btn btn-default btn-sm" href="/menu/delete/${menu.id}"><i class="fa fa-trash"></i> 删除</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/delete/${menu.id}" onclick="if(confirm( '您确定要删除吗？')==false)return   false;"><i class="fa fa-trash"></i> 删除</a>
                                             </div>
                                         </td>
                                     </tr>

@@ -1,5 +1,7 @@
 package com.retailers.common.Base;
 
+import com.retailers.common.IdGen;
+
 /**
  * Created by GC on 2016/12/01.
  */
@@ -41,5 +43,9 @@ public abstract class BaseEntity {
 
     public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
+    }
+
+    public void  preInsert(){
+        setId(IdGen.getuuid());
     }
 }

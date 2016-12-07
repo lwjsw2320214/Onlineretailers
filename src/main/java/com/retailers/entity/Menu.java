@@ -62,7 +62,7 @@ public class Menu extends BaseEntity {
     }
 
     public Integer getSort() {
-        return sort;
+        return sort==null?1:sort;
     }
 
     public void setSort(Integer sort) {
