@@ -63,13 +63,20 @@ public class MenuController {
     /**
      *
      * */
-    @RequestMapping(value = "/add/{pid}",method = RequestMethod.GET)
-    public  String add(@PathVariable("pid")  String pid, Model model){
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
+    public  String add(String id, Model model){
         Menu menu=new Menu();
-        Menu p=new Menu();
-        p.setMenuName("功能菜单");
-        menu.setPid("0");
-        menu.setParent(p);
+        if(StringUtils.isBlank(id)){
+            Menu p=new Menu();
+            p.setMenuName("功能菜单");
+            menu.setPid("0");
+            menu.setParent(p);
+
+        }else{
+            Menu p=service.getMenuForId(id);
+            menu.setPid(p.getId());
+            menu.setParent(p);
+        }
         model.addAttribute("menu",menu);
         return "System/menuAdd";
     }

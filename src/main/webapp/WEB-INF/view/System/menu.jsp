@@ -81,7 +81,7 @@
                                         <td>${menu.showFlag eq '1' ?'显示':'隐藏'}</td>
                                         <td class="text-right">
                                             <div class="btn-group">
-                                                <a class="btn btn-default btn-sm" href="/menu/add/${menu.id}"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
+                                                <a class="btn btn-default btn-sm" href="/menu/add?id=${menu.id}"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
                                                 <a class="btn btn-default btn-sm" href="/menu/edit/${menu.id}"><i class="fa fa-paste"></i> 修改</a>
                                                 <a class="btn btn-default btn-sm" href="/menu/delete/${menu.id}" onclick="if(confirm( '您确定要删除吗？')==false)return   false;"><i class="fa fa-trash"></i> 删除</a>
                                             </div>
