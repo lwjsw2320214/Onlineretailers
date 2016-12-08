@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.retailers.dao.IOfficeDao">
+    
+    <sql id="officeFullNameColumns">
+        a.id AS "id",
+        a.office_name AS "officeName",
+        a.pid AS "parent.id",
+        a.pid AS "pid",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag",
+        p.office_name AS "parent.officeName"
+    </sql>
+
+    <sql id="leftJoin">
+        LEFT JOIN manage_office p on p.id=a.pid
+    </sql>
+
+    <select id="getAll" resultType="ManageOffice">
+        SELECT
+        <include refid="officeFullNameColumns"/>
+        FROM manage_office a
+        <include refid="leftJoin"/>
+        WHERE  a.del_flag='0'
+    </select>
+
+    <select id="getManageOfficeForId" resultType="ManageOffice">
+        SELECT
+        <include refid="officeFullNameColumns"/>
+        FROM manage_office a
+        <include refid="leftJoin"/>
+        WHERE  a.del_flag='0'
+        AND  a.id=#{id}
+    </select>
+
+    <insert id="add">
+        INSERT  INTO manage_office
+        (id,office_name,pid,remarks,del_flag)
+        VALUES
+        (#{id},#{officeName},#{pid},#{remarks},#{delFlag})
+    </insert>
+
+    <update id="edit">
+        UPDATE  manage_office SET
+        office_name=#{officeName},
+        pid=#{pid},
+        remarks=#{remarks},
+        del_flag=#{delFlag}
+        WHERE  id=#{id}
+    </update>
+
+    <update id="delete">
+        UPDATE  manage_office SET
+        del_flag='1'
+        WHERE  id=#{id}
+    </update>
+    
+    </mapper>
