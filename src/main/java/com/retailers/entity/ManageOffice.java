@@ -3,6 +3,7 @@ package com.retailers.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.retailers.common.Base.BaseEntity;
 import com.retailers.common.IdGen;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class ManageOffice extends BaseEntity {
     /**
      * 部门名称
      * */
+    @NotBlank(message = "部门名称不能为空！")
     private String officeName;
     /**
      * 上级部门
