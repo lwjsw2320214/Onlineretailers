@@ -1,6 +1,8 @@
 package com.retailers.controller.System;
 
+import com.retailers.entity.Menu;
 import com.retailers.entity.UserGroup;
+import com.retailers.service.MenuService;
 import com.retailers.service.UserGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +26,8 @@ public class UserGroupController {
 
     @Autowired
     UserGroupService service;
+    @Autowired
+    MenuService menuService;
 
     @RequestMapping
     public String index(Model model){
@@ -34,6 +39,10 @@ public class UserGroupController {
     @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String add(Model model){
         model.addAttribute("userGroup",new UserGroup());
+        //所有菜单
+        List<Menu> menuList=new ArrayList<Menu>();
+        Menu.sortList(menuList, menuService.getAll(),"0",true);
+        model.addAttribute("menuList",menuList);
         return "System/userGroupAdd";
     }
 

@@ -58,6 +58,15 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">访问权限：</label>
+                                <div class="col-sm-10" >
+                                    <div class="zTreeDemoBackground left">
+                                        <ul id="menuTree" class="ztree"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">备注：</label>
                                 <div class="col-sm-5">
                                     <form:textarea path="remarks" cssClass="form-control"/>
@@ -82,5 +91,26 @@
         </div>
     </div>
 </div>
+<link href="/static/ztree/css/zTreeStyle.css"  rel="stylesheet">
+<script src="/static/ztree/js/jquery.ztree.core.min.js"></script>
+<script src="/static/ztree/js/jquery.ztree.excheck.min.js"></script>
+<script>
+    $(function () {
+        var setting = {
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            }
+        };
+        var zNodes=[<c:forEach items="${menuList}" var="menu">{id:"${menu.id}",pId:"${menu.pid}",name:"${menu.menuName}"},</c:forEach>];
+        $.fn.zTree.init($("#menuTree"), setting, zNodes);
+        var treeObj = $.fn.zTree.getZTreeObj("menuTree");
+        treeObj.expandAll(true);
+    })
+</script>
 </body>
 </html>

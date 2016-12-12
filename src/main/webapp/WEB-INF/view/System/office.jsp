@@ -46,7 +46,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-right">
 
-                        <a href="/office/add/" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加部门</a>
+                        <a href="/office/add" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加部门</a>
                     </div>
                 </div>
             </div>
