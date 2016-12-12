@@ -46,7 +46,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-right">
 
-                        <a href="/menu/add/" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加菜单</a>
+                        <a href="/menu/add" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加菜单</a>
                     </div>
                 </div>
             </div>
