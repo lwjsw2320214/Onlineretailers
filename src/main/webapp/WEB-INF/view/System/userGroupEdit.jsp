@@ -59,6 +59,16 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <input type="hidden" name="roleList" id="roleList" value="${roleList}" />
+                                <label class="col-sm-2 control-label">访问权限：</label>
+                                <div class="col-sm-10" >
+                                    <div class="zTreeDemoBackground left">
+                                        <ul id="menuTree" class="ztree"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">备注：</label>
                                 <div class="col-sm-5">
                                     <form:textarea path="remarks" cssClass="form-control"/>
@@ -83,5 +93,53 @@
         </div>
     </div>
 </div>
+<link href="/static/ztree/css/zTreeStyle.css"  rel="stylesheet">
+<script src="/static/ztree/js/jquery.ztree.core.min.js"></script>
+<script src="/static/ztree/js/jquery.ztree.excheck.min.js"></script>
+<script>
+    $(function () {
+        var setting = {
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                onCheck: onCheck
+            }
+
+        };
+        var zNodes=[<c:forEach items="${menuList}" var="menu">{id:"${menu.id}",pId:"${menu.pid}",name:"${menu.menuName}"},</c:forEach>];
+        $.fn.zTree.init($("#menuTree"), setting, zNodes);
+
+        var treeObj = $.fn.zTree.getZTreeObj("menuTree");
+        treeObj.expandAll(true);
+        var checkNodeId="${roleList}";
+        if(checkNodeId.length>0){
+            var checkArray=checkNodeId.split(',');
+            $(checkArray).each(function (item,dataValue) {
+                treeObj.checkNode(treeObj.getNodeByParam( "id",dataValue),true);
+            });
+        }
+    })
+
+    function onCheck(e, treeId, treeNode) {
+        var treeObj=$.fn.zTree.getZTreeObj("menuTree"),
+                nodes=treeObj.getCheckedNodes(true),
+                v="";
+        for(var i=0;i<nodes.length;i++){
+            v+=nodes[i].id + ",";
+        }
+        if (v.length>0){
+            v=v.substring(0,v.length-1);
+        }
+        //alert(v); //获取选中节点的值
+        $("#roleList").val(v);
+    }
+
+</script>
 </body>
 </html>

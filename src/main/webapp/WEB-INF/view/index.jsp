@@ -44,6 +44,7 @@
                         <li><a href="/menu"><i class="fa fa-bars"></i>菜单管理</a></li>
                         <li><a href="/userGroup"><i class="fa fa-users"></i>用户组管理</a></li>
                         <li><a href="/office"><i class="fa fa-university"></i>部门管理</a></li>
+                        <li><a href="/position"><i class="fa fa-gavel"></i>职位管理</a></li>
                         <li><a href="/dictionary"><i class="fa fa-book"></i>字典管理</a></li>
                     </ul>
                 </li>

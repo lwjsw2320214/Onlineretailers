@@ -3,6 +3,7 @@ package com.retailers.controller.System;
 import com.retailers.entity.Menu;
 import com.retailers.entity.UserGroup;
 import com.retailers.service.MenuService;
+import com.retailers.service.RoleMenuService;
 import com.retailers.service.UserGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,6 +31,8 @@ public class UserGroupController {
     UserGroupService service;
     @Autowired
     MenuService menuService;
+    @Autowired
+    RoleMenuService roleMenuService;
 
     @RequestMapping
     public String index(Model model){
@@ -47,17 +52,22 @@ public class UserGroupController {
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String add(Model model, @Valid UserGroup userGroup , BindingResult result, RedirectAttributes redirectAttributes){
-        if (result.hasErrors()){
-            model.addAttribute("userGroup",userGroup);
-            return "System/userGroupAdd";
+    public String add(Model model,HttpServletRequest request, @Valid UserGroup userGroup ,  BindingResult result, RedirectAttributes redirectAttributes){
+        String roleList=request.getParameter("roleList");
+        if (!result.hasErrors()){
+            List<String> list= new ArrayList(Arrays.asList(roleList.split(",")));
+            Integer count=service.add(userGroup,list);
+            if (count>0){
+                redirectAttributes.addFlashAttribute("message","添加成功！");
+                return "redirect:/userGroup";
+            }
         }
-        Integer count=service.add(userGroup);
-        if (count>0){
-            redirectAttributes.addFlashAttribute("message","添加成功！");
-            return "redirect:/userGroup";
-        }
+        //所有菜单
+        List<Menu> menuList=new ArrayList<Menu>();
+        Menu.sortList(menuList, menuService.getAll(),"0",true);
+        model.addAttribute("menuList",menuList);
         model.addAttribute("userGroup",userGroup);
+        model.addAttribute("roleList",roleList);
         return "System/userGroupAdd";
     }
 
@@ -65,21 +75,32 @@ public class UserGroupController {
     public String edit(@PathVariable String id,Model model){
         UserGroup userGroup=service.getUserGroupForId(id);
         model.addAttribute("userGroup",userGroup);
+        //所有菜单
+        List<Menu> menuList=new ArrayList<Menu>();
+        Menu.sortList(menuList, menuService.getAll(),"0",true);
+        model.addAttribute("menuList",menuList);
+        String roleList=roleMenuService.getAllMenuId(id);
+        model.addAttribute("roleList",roleList);
         return "System/userGroupEdit";
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    public String edit(Model model, @Valid UserGroup userGroup , BindingResult result, RedirectAttributes redirectAttributes){
-        if (result.hasErrors()){
-            model.addAttribute("userGroup",userGroup);
-            return "System/userGroupEdit";
+    public String edit(Model model,HttpServletRequest request, @Valid UserGroup userGroup , BindingResult result, RedirectAttributes redirectAttributes){
+        String roleList=request.getParameter("roleList");
+        if (!result.hasErrors()){
+            List<String> list= new ArrayList(Arrays.asList(roleList.split(",")));
+            Integer count=service.edit(userGroup,list);
+            if (count>0){
+                redirectAttributes.addFlashAttribute("message","修改成功！");
+                return "redirect:/userGroup";
+            }
         }
-        Integer count=service.edit(userGroup);
-        if (count>0){
-            redirectAttributes.addFlashAttribute("message","修改成功！");
-            return "redirect:/userGroup";
-        }
+        //所有菜单
+        List<Menu> menuList=new ArrayList<Menu>();
+        Menu.sortList(menuList, menuService.getAll(),"0",true);
+        model.addAttribute("menuList",menuList);
         model.addAttribute("userGroup",userGroup);
+        model.addAttribute("roleList",roleList);
         return "System/userGroupEdit";
     }
 

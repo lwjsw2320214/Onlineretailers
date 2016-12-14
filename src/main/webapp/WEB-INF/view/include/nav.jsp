@@ -29,9 +29,10 @@
                 <a href="javascript:void(0);"><i class="fa fa-gears"></i> <span class="nav-label">系统设置</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="/user"><i class="fa fa-user"></i>用户管理</a></li>
-                    <li class="active"><a href="/menu"><i class="fa fa-bars"></i>菜单管理</a></li>
+                    <li><a href="/menu"><i class="fa fa-bars"></i>菜单管理</a></li>
                     <li><a href="/userGroup"><i class="fa fa-users"></i>用户组管理</a></li>
                     <li><a href="/office"><i class="fa fa-university"></i>部门管理</a></li>
+                    <li><a href="/position"><i class="fa fa-gavel"></i>职位管理</a></li>
                     <li><a href="/dictionary"><i class="fa fa-book"></i>字典管理</a></li>
                 </ul>
             </li>

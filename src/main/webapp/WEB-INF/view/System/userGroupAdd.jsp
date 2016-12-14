@@ -58,6 +58,7 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <input type="hidden" name="roleList" id="roleList" value="${roleList}" />
                                 <label class="col-sm-2 control-label">访问权限：</label>
                                 <div class="col-sm-10" >
                                     <div class="zTreeDemoBackground left">
@@ -104,13 +105,40 @@
                 simpleData: {
                     enable: true
                 }
+            },
+            callback: {
+                onCheck: onCheck
             }
+
         };
         var zNodes=[<c:forEach items="${menuList}" var="menu">{id:"${menu.id}",pId:"${menu.pid}",name:"${menu.menuName}"},</c:forEach>];
         $.fn.zTree.init($("#menuTree"), setting, zNodes);
+
         var treeObj = $.fn.zTree.getZTreeObj("menuTree");
         treeObj.expandAll(true);
+        var checkNodeId="${roleList}";
+        if(checkNodeId.length>0){
+            var checkArray=checkNodeId.split(',');
+            $(checkArray).each(function (item,dataValue) {
+                    treeObj.checkNode(treeObj.getNodeByParam( "id",dataValue),true);
+            });
+        }
     })
+
+    function onCheck(e, treeId, treeNode) {
+        var treeObj=$.fn.zTree.getZTreeObj("menuTree"),
+                nodes=treeObj.getCheckedNodes(true),
+                v="";
+        for(var i=0;i<nodes.length;i++){
+            v+=nodes[i].id + ",";
+        }
+        if (v.length>0){
+            v=v.substring(0,v.length-1);
+        }
+        //alert(v); //获取选中节点的值
+        $("#roleList").val(v);
+    }
+
 </script>
 </body>
 </html>
