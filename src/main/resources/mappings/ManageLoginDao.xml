@@ -15,15 +15,35 @@
         a.user_type AS "userType",
         a.remarks AS "remarks",
         a.login_flag AS "loginFlag",
-        a.del_flag AS "delFlag"
+        a.del_flag AS "delFlag",
+        b.office_name AS "office.officeName",
+        c.role_name AS "group.roleName"
     </sql>
+
+    <sql id="leftJionColumns">
+        LEFT JOIN manage_office AS b  ON  a.office_id=b.id
+        LEFT JOIN  role AS  c  on a.user_type =c.id
+    </sql>
+
+    <select id="getAll" resultType="ManageLogin">
+        SELECT
+        <include refid="userFullNameColumns"/>
+        FROM   manage_login  a
+        <include refid="leftJionColumns"/>
+        <where>
+            AND a.del_flag='0'
+        </where>
+
+    </select>
 
      <select id="getUserForUserName" resultType="ManageLogin">
          SELECT  
          <include refid="userFullNameColumns"/>
          FROM   manage_login  a
+         <include refid="leftJionColumns"/>
          <where>
              a.login_name=#{loginName}
+             AND a.del_flag='0'
          </where>
 
      </select>

@@ -3,6 +3,7 @@ package com.retailers.controller.System;
 import com.alibaba.druid.util.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.retailers.common.Base.BaseController;
 import com.retailers.common.ConfigProperties;
 import com.retailers.entity.Menu;
 import com.retailers.entity.UserGroup;
@@ -29,8 +30,8 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/userGroup")
-public class UserGroupController {
-    private  Integer pageSize= Integer.parseInt(ConfigProperties.getConfig("pageSize"));
+public class UserGroupController extends BaseController {
+
     @Autowired
     UserGroupService service;
     @Autowired

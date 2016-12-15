@@ -17,6 +17,8 @@ public class ManageLogin extends BaseEntity {
     private  String mobile;
     private  String userType;
     private  String loginFlag;
+    private  ManageOffice office;  //用户所在部门
+    private  UserGroup group;      //用户所在组
 
     public String getLoginName() {
         return loginName;
@@ -96,5 +98,21 @@ public class ManageLogin extends BaseEntity {
 
     public void setLoginFlag(String loginFlag) {
         this.loginFlag = loginFlag;
+    }
+
+    public ManageOffice getOffice() {
+        return office;
+    }
+
+    public void setOffice(ManageOffice office) {
+        this.office = office;
+    }
+
+    public UserGroup getGroup() {
+        return group;
+    }
+
+    public void setGroup(UserGroup group) {
+        this.group = group;
     }
 }
