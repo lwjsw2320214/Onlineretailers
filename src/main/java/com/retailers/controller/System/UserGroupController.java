@@ -1,5 +1,9 @@
 package com.retailers.controller.System;
 
+import com.alibaba.druid.util.StringUtils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.retailers.common.ConfigProperties;
 import com.retailers.entity.Menu;
 import com.retailers.entity.UserGroup;
 import com.retailers.service.MenuService;
@@ -26,7 +30,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/userGroup")
 public class UserGroupController {
-
+    private  Integer pageSize= Integer.parseInt(ConfigProperties.getConfig("pageSize"));
     @Autowired
     UserGroupService service;
     @Autowired
@@ -35,9 +39,16 @@ public class UserGroupController {
     RoleMenuService roleMenuService;
 
     @RequestMapping
-    public String index(Model model){
+    public String index(Model model,HttpServletRequest request){
+        String page="1";
+        if (StringUtils.isNumber(request.getParameter("page"))){
+            page=request.getParameter("page");
+        }
+        Integer pageNum=Integer.parseInt(page) ;
+        PageHelper.startPage(pageNum,pageSize);
         List<UserGroup> list=service.getAll();
-        model.addAttribute("list",list);
+        PageInfo<UserGroup> pageInfo=new PageInfo<UserGroup>(list);
+        model.addAttribute("pageInfo",pageInfo);
         return "System/userGroup";
     }
 

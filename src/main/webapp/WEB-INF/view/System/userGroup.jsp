@@ -59,7 +59,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${list}"  var="userGroup">
+                                <c:forEach items="${pageInfo.list}"  var="userGroup">
                                     <tr >
                                         <td>${userGroup.roleName}</td>
                                         <td class="text-right">
@@ -72,6 +72,17 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
+                            <div class="text-center">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li <c:if test="${pageInfo.isFirstPage}">class="disabled"</c:if> ><a  <c:if test="${!pageInfo.isFirstPage}"> href="?page=${pageInfo.navigateFirstPage}"</c:if>>«</a></li>
+                                        <c:forEach  var="p" begin="1" end="${pageInfo.pages}">
+                                            <li <c:if test="${pageInfo.pageNum==p}"> class="active" </c:if> ><a href="?page=${p}">${p}<span class="sr-only">(current)</span></a></li>
+                                        </c:forEach>
+                                        <li <c:if test="${pageInfo.isLastPage}">class="disabled"</c:if> ><a <c:if test="${!pageInfo.isLastPage}">href="?page=${pageInfo.navigateLastPage}"</c:if>>»</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
