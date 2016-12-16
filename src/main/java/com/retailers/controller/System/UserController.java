@@ -5,11 +5,14 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.retailers.common.Base.BaseController;
 import com.retailers.entity.ManageLogin;
+import com.retailers.entity.ManageOffice;
+import com.retailers.entity.UserGroup;
 import com.retailers.service.ManageLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -37,4 +40,21 @@ public class UserController  extends BaseController{
         model.addAttribute("pageInfo",pageInfo);
         return "System/user";
     }
+
+
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
+    public String add(Model model){
+        ManageLogin user= new ManageLogin();
+        if (user.getOffice()==null){
+            ManageOffice manageOffice=new ManageOffice();
+            user.setOffice(manageOffice);
+        }
+        if (user.getGroup()==null){
+            UserGroup userGroup=new UserGroup();
+            user.setGroup(userGroup);
+        }
+        model.addAttribute("user",user);
+        return "System/userAdd";
+    }
+
 }

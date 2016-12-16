@@ -10,15 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>官网后台 | 菜单管理</title>
     <jsp:include page="../include/head.jsp"/>
-    <link href="/static/treeTable/css/jquery.treetable.css" rel="stylesheet">
-    <link href="/static/treeTable/css/jquery.treetable.theme.default.css" rel="stylesheet">
-    <script src="/static/treeTable/js/jquery.treetable.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("#treeTable").treetable({ expandable: true });
-        });
-    </script>
 </head>
 
 <body>

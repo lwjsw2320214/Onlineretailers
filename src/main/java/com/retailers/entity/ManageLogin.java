@@ -16,7 +16,7 @@ public class ManageLogin extends BaseEntity {
     private  String phone;
     private  String mobile;
     private  String userType;
-    private  String loginFlag;
+    private  String loginFlag="0";
     private  ManageOffice office;  //用户所在部门
     private  UserGroup group;      //用户所在组
 
