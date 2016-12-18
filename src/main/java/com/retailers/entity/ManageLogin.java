@@ -1,20 +1,30 @@
 package com.retailers.entity;
 
 import com.retailers.common.Base.BaseEntity;
+import com.retailers.common.IdGen;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Created by GC on 2016/12/01.
  */
 public class ManageLogin extends BaseEntity {
 
-      private  String loginName;
+    @Length(max =18 ,min =4 ,message = "用户名必须为4到18位字符串")
+    private  String loginName;
     private  String loginPassword;
+    @NotBlank(message = "真实姓名不能为空！")
     private  String realRame;
+    @NotBlank(message = "用户所在部门不能为空！")
     private  String officeId;
     private  String position;
     private  String email;
     private  String phone;
     private  String mobile;
+    @NotBlank(message = "用户类型不能为空！")
     private  String userType;
     private  String loginFlag="0";
     private  ManageOffice office;  //用户所在部门
@@ -114,5 +124,8 @@ public class ManageLogin extends BaseEntity {
 
     public void setGroup(UserGroup group) {
         this.group = group;
+    }
+    public void  preInsert(){
+        setId(IdGen.getuuid());
     }
 }

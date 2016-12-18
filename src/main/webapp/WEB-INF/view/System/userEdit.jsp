@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>官网后台 | 添加用户</title>
+    <title>官网后台 | 修改用户</title>
     <jsp:include page="../include/head.jsp"/>
 </head>
 
@@ -19,7 +19,7 @@
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>添加用户</h2>
+                <h2>修改用户</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="/index">首页</a>
@@ -28,7 +28,7 @@
                         <a href="/user">用户管理</a>
                     </li>
                     <li class="active">
-                        <strong>添加用户</strong>
+                        <strong>修改用户</strong>
                     </li>
                 </ol>
             </div>
@@ -41,28 +41,29 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>添加用户</h5>
+                            <h5>修改用户</h5>
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/user/add" cssClass="form-horizontal"  modelAttribute="manageLogin">
+                        <form:form action="/user/edit" cssClass="form-horizontal"  modelAttribute="manageLogin">
+                            <form:hidden path="id"/>
                             <div class="form-group">
-                            <label class="col-sm-2 control-label">所在部门：</label>
-                            <div class="col-sm-5">
-                                <div class="input-group">
-                                    <form:input path="office.officeName" readonly="true"   cssClass="form-control parentName"/>
-                                    <form:hidden path="officeId"/>
-                                    <span class="input-group-btn">
+                                <label class="col-sm-2 control-label">所在部门：</label>
+                                <div class="col-sm-5">
+                                    <div class="input-group">
+                                        <form:input path="office.officeName" readonly="true"  cssClass="form-control parentName"/>
+                                        <form:hidden path="officeId"/>
+                                        <span class="input-group-btn">
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#officeList" id="showOffice">
                                                 <i class="fa fa-search"></i> 选择
                                             </button>
                                         </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <form:errors path="officeId" cssClass="alert-danger"/>
                                 </div>
                             </div>
-                            <div class="col-sm-5">
-                                <form:errors path="officeId" cssClass="alert-danger"/>
-                            </div>
-                        </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户类型：</label>
@@ -85,7 +86,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户名：</label>
                                 <div class="col-sm-5">
-                                    <form:input path="loginName" cssClass="form-control"/>
+                                    <form:input path="loginName" readonly="true"  cssClass="form-control"/>
                                 </div>
                                 <div class="col-sm-5">
                                     <form:errors path="loginName" cssClass="alert-danger"/>
@@ -269,7 +270,7 @@
                 var h="";
                 $("#userGroupTable").html(h);
                 $(data).each(function (i,item) {
-                h+='<div class="col-lg-3"><input  name="roleValue" type="radio" value="'+item.id+'" data="'+item.roleName+'"/>'+item.roleName+'</div>';
+                    h+='<div class="col-lg-3"><input  name="roleValue" type="radio" value="'+item.id+'" data="'+item.roleName+'"/>'+item.roleName+'</div>';
                 })
                 $("#userGroupTable").html(h);
             })

@@ -43,7 +43,7 @@ public class RoleShiro extends AuthorizingRealm {
         ManageLogin manageLogin=new ManageLogin();
         manageLogin.setLoginName(upt.getUsername());
         ManageLogin ml=service.getUserForUserName(manageLogin);
-        if (ml!=null){
+        if (ml!=null&&ml.getLoginFlag().equals("0")){
             SimpleAuthenticationInfo simpleAuthenticationInfo=  new SimpleAuthenticationInfo(ml,ml.getLoginPassword(),getName());
             return simpleAuthenticationInfo;
         }

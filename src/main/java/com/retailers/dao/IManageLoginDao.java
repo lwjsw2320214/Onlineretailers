@@ -18,7 +18,26 @@ public interface IManageLoginDao {
     /**
      * 根据用户名获取用户
      * */
-    public ManageLogin getUserForUserName(ManageLogin manageLogin);
+     ManageLogin getUserForUserName(ManageLogin manageLogin);
 
+
+    /**
+     * 根据用id获取用户
+     * */
+    ManageLogin getUserForid(String id);
+     /**
+      * 添加用户
+      * */
+     Integer add(ManageLogin manageLogin);
+
+     /**
+      * 修改用户
+      * */
+     Integer edit(ManageLogin manageLogin);
+
+     /**
+      * 删除
+      * */
+     Integer delete(String id);
 
     }

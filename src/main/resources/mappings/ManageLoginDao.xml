@@ -48,4 +48,58 @@
 
      </select>
 
+    <select id="getUserForid" resultType="ManageLogin">
+        SELECT
+        <include refid="userFullNameColumns"/>
+        FROM   manage_login  a
+        <include refid="leftJionColumns"/>
+        <where>
+            a.id=#{id}
+            AND a.del_flag='0'
+        </where>
+    </select>
+
+    <insert id="add">
+        INSERT  INTO manage_login
+        (id,login_name,login_password,real_name,office_id,position,email,phone,mobile,user_type,remarks,login_flag,del_flag)
+        VALUES
+        (
+        #{id},
+        #{loginName},
+        #{loginPassword},
+        #{realRame},
+        #{officeId},
+        #{position},
+        #{email},
+        #{phone},
+        #{mobile},
+        #{userType},
+        #{remarks},
+        #{loginFlag},
+        #{delFlag}
+        )
+    </insert>
+
+    <update id="edit">
+      UPDATE manage_login  SET
+      <if test="loginPassword!=null and loginPassword!=''">
+      login_password=#{loginPassword},
+      </if>
+      real_name=#{realRame},
+      office_id= #{officeId},
+      position=#{position},
+      email=#{email},
+      phone= #{phone},
+      mobile=#{mobile},
+      user_type=#{userType},
+      remarks= #{remarks},
+      login_flag=#{loginFlag},
+      del_flag=#{delFlag}
+      WHERE  id=#{id}
+    </update>
+
+    <update id="delete">
+        UPDATE manage_login  SET del_flag='1' WHERE  id=#{id}
+    </update>
+
 </mapper>

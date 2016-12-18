@@ -33,4 +33,36 @@ public class ManageLoginService {
         return  dao.getUserForUserName(manageLogin);
     }
 
+    /**
+     * 根据用id获取用户
+     * */
+    public ManageLogin getUserForid(String id){
+        return  dao.getUserForid(id);
+    }
+
+    /**
+     * 添加用户
+     * */
+    @Transactional(readOnly = false)
+    public Integer add(ManageLogin manageLogin){
+        manageLogin.preInsert();
+        return dao.add(manageLogin);
+    }
+
+    /**
+     * 修改用户
+     * */
+    @Transactional(readOnly = false)
+    public Integer edit(ManageLogin manageLogin){
+        return   dao.edit(manageLogin);
+    }
+
+    /**
+     * 删除
+     * */
+    @Transactional(readOnly = false)
+    public Integer delete(String id){
+        return  dao.delete(id);
+    }
+
 }
