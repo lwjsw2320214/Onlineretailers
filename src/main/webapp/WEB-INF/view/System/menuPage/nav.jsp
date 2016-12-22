@@ -10,7 +10,7 @@
                              </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><shiro:principal property="realRame"/></strong>
-                             </span> <span class="text-muted text-xs block"><b class="caret"></b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block"><shiro:principal  type="com.retailers.entity.ManageLogin" property="office"/><b class="caret"></b></span> </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="profile.html">个人中心</a></li>
                         <li><a href="mailbox.html">消息中心</a></li>
