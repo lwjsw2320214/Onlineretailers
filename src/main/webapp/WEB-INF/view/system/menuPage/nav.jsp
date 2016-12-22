@@ -10,7 +10,7 @@
                              </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><shiro:principal property="realRame"/></strong>
-                             </span> <span class="text-muted text-xs block"><shiro:principal  type="com.retailers.entity.ManageLogin" property="office"/><b class="caret"></b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block">${manageLogin.office.officeName},${manageLogin.group.roleName}<b class="caret"></b></span> </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="profile.html">个人中心</a></li>
                         <li><a href="mailbox.html">消息中心</a></li>
@@ -26,13 +26,20 @@
                 <c:if test="${menu.pid=='0'}">
                     <li>
                         <a href="${menu.urlPath==null?"#":menu.urlPath}"><i class="${menu.ioc}"></i> <span class="nav-label">${menu.menuName}</span></a>
-                        <ul class="nav nav-second-level">
+                        <c:set var="idx" value="0"/>
                         <c:forEach items="${list}" var="menuc">
                             <c:if test="${menuc.pid==menu.id}">
-                                <li><a href="${menuc.urlPath==null?"#":menuc.urlPath}"><i class="${menuc.ioc}"></i>${menuc.menuName}</a></li>
+                                <c:if test="${idx==0}">
+                        <ul class="nav nav-second-level">
+                        </c:if>
+                                    <li><a href="${menuc.urlPath==null?"#":menuc.urlPath}"><i class="${menuc.ioc}"></i>${menuc.menuName}</a></li>
+                            <c:set var="idx" value="${idx+1}"/>
                             </c:if>
                         </c:forEach>
-                        </ul>
+                            <c:if test="${idx>0}">
+                                </ul>
+                        </c:if>
+
                     </li>
                 </c:if>
             </c:forEach>

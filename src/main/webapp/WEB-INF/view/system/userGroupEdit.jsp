@@ -15,7 +15,7 @@
 
 <body>
 <div id="wrapper">
-    <jsp:include page="../include/nav.jsp"/>
+    <c:import url="/index/menuList"/>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
@@ -29,7 +29,7 @@
                         <a href="/userGroup">用户组管理</a>
                     </li>
                     <li class="active">
-                        <strong>添加用户组</strong>
+                        <strong>修改用户组</strong>
                     </li>
                 </ol>
             </div>
@@ -42,11 +42,12 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>添加用户组</h5>
+                            <h5>修改用户组</h5>
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/userGroup/add" cssClass="form-horizontal"  modelAttribute="userGroup">
+                        <form:form action="/userGroup/edit" cssClass="form-horizontal"  modelAttribute="userGroup">
+                            <form:hidden path="id"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户组名称：</label>
                                 <div class="col-sm-5">
@@ -120,7 +121,7 @@
         if(checkNodeId.length>0){
             var checkArray=checkNodeId.split(',');
             $(checkArray).each(function (item,dataValue) {
-                    treeObj.checkNode(treeObj.getNodeByParam( "id",dataValue),true);
+                treeObj.checkNode(treeObj.getNodeByParam( "id",dataValue),true);
             });
         }
     })

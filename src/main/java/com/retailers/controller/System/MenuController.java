@@ -34,7 +34,7 @@ public class MenuController {
         List<Menu> list=new ArrayList<Menu>();
         Menu.sortList(list,sourcelist,"0",true);
         model.addAttribute("list",list);
-        return "System/menu";
+        return "system/menu";
     }
 
     @RequestMapping(value = "/getTreeMenu")
@@ -78,14 +78,14 @@ public class MenuController {
             menu.setParent(p);
         }
         model.addAttribute("menu",menu);
-        return "System/menuAdd";
+        return "system/menuAdd";
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public  String add(Model model, @Valid Menu menu, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             model.addAttribute("menu",menu);
-            return "System/menuAdd";
+            return "system/menuAdd";
         }
         Integer count=service.add(menu);
         if (count>0){
@@ -93,7 +93,7 @@ public class MenuController {
             return "redirect:/menu";
         }
         model.addAttribute("menu",menu);
-        return "System/menuAdd";
+        return "system/menuAdd";
     }
 
     @RequestMapping(value = "/edit/{id}",method = RequestMethod.GET)
@@ -103,14 +103,14 @@ public class MenuController {
             menu.getParent().setMenuName("功能菜单");
         }
         model.addAttribute("menu",menu);
-        return "System/editMenu";
+        return "system/editMenu";
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     public String edit(Model model, @Valid Menu menu, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             model.addAttribute("menu",menu);
-            return "System/editMenu";
+            return "system/editMenu";
         }
         Integer count=service.edit(menu);
         if (count>0) {
@@ -118,7 +118,7 @@ public class MenuController {
             return "redirect:/menu";
         }
         model.addAttribute("menu",menu);
-        return "System/editMenu";
+        return "system/editMenu";
     }
 
 

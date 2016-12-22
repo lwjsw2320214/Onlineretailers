@@ -1,7 +1,10 @@
 package com.retailers.controller;
 
+import com.retailers.entity.ManageLogin;
 import com.retailers.entity.Menu;
 import com.retailers.service.MenuService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +33,10 @@ public class IndexController {
         List<Menu> sourcelist=service.getAll();
         List<Menu> list=new ArrayList<Menu>();
         Menu.sortList(list,sourcelist,"0",true);
+        Subject currentUser = SecurityUtils.getSubject();
+        ManageLogin manageLogin=(ManageLogin) currentUser.getPrincipal();
         model.addAttribute("list",list);
-        return "System/menuPage/nav";
+        model.addAttribute("manageLogin",manageLogin);
+        return "system/menuPage/nav";
     }
 }

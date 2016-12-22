@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>官网后台 | 部门管理</title>
+    <title>官网后台 | 职位管理</title>
     <jsp:include page="../include/head.jsp"/>
     <link href="/static/treeTable/css/jquery.treetable.css" rel="stylesheet">
     <link href="/static/treeTable/css/jquery.treetable.theme.default.css" rel="stylesheet">
@@ -22,18 +22,18 @@
 
 <body>
 <div id="wrapper">
-    <jsp:include page="../include/nav.jsp"/>
+    <c:import url="/index/menuList"/>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>部门管理</h2>
+                <h2>职位管理</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="/index">首页</a>
                     </li>
                     <li class="active">
-                        <strong>部门管理</strong>
+                        <strong>职位管理</strong>
                     </li>
                 </ol>
             </div>
@@ -46,7 +46,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-right">
 
-                        <a href="/office/add" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加部门</a>
+                        <a href="/office/add" class="btn btn-w-m btn-default"><i class="fa fa-plus"></i> 添加职位</a>
                     </div>
                 </div>
             </div>
@@ -63,23 +63,23 @@
                             <table id="treeTable" class="table table-striped table-bordered table-hover dataTables-example dataTable">
                                 <thead style="font-size: 12px">
                                 <tr>
-                                    <th >部门名称</th>
+                                    <th >职位名称</th>
                                     <th class="text-right" style="width: 18%">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${list}"  var="manageOffice">
-                                    <tr  data-tt-id="${manageOffice.id}" data-tt-parent-id="${manageOffice.parent.id}">
-                                        <td>${manageOffice.officeName}</td>
-                                        <td class="text-right">
-                                            <div class="btn-group">
-                                                <a class="btn btn-default btn-sm" href="/office/add?id=${manageOffice.id}"><i class="fa fa-pencil-square-o"></i> 添加下级</a>
-                                                <a class="btn btn-default btn-sm" href="/office/edit/${manageOffice.id}"><i class="fa fa-paste"></i> 修改</a>
-                                                <a class="btn btn-default btn-sm" href="/office/delete/${manageOffice.id}" onclick="if(confirm( '您确定要删除吗？')==false)return   false;"><i class="fa fa-trash"></i> 删除</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                                <%--<c:forEach items="${list}"  var="manageOffice">--%>
+                                    <%--<tr  data-tt-id="${manageOffice.id}" data-tt-parent-id="${manageOffice.parent.id}">--%>
+                                        <%--<td>${manageOffice.officeName}</td>--%>
+                                        <%--<td class="text-right">--%>
+                                            <%--<div class="btn-group">--%>
+                                                <%--<a class="btn btn-default btn-sm" href="/office/add?id=${manageOffice.id}"><i class="fa fa-pencil-square-o"></i> 添加下级</a>--%>
+                                                <%--<a class="btn btn-default btn-sm" href="/office/edit/${manageOffice.id}"><i class="fa fa-paste"></i> 修改</a>--%>
+                                                <%--<a class="btn btn-default btn-sm" href="/office/delete/${manageOffice.id}" onclick="if(confirm( '您确定要删除吗？')==false)return   false;"><i class="fa fa-trash"></i> 删除</a>--%>
+                                            <%--</div>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                <%--</c:forEach>--%>
                                 </tbody>
                             </table>
                         </div>

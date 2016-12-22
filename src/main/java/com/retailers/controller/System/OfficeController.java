@@ -35,7 +35,7 @@ public class OfficeController {
         List<ManageOffice> manageOfficeList=service.getAll();
         ManageOffice.sortList(list,manageOfficeList,"0",true);
         model.addAttribute("list",list);
-        return "System/office";
+        return "system/office";
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.GET)
@@ -52,14 +52,14 @@ public class OfficeController {
             manageOffice.setParent(p);
         }
         model.addAttribute("manageOffice",manageOffice);
-        return "System/officeAdd";
+        return "system/officeAdd";
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(Model model, @Valid ManageOffice manageOffice, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             model.addAttribute("manageOffice",manageOffice);
-            return "System/officeAdd";
+            return "system/officeAdd";
         }
         Integer count= service.add(manageOffice);
         if (count>0){
@@ -67,7 +67,7 @@ public class OfficeController {
             return "redirect:/office";
         }
         model.addAttribute("manageOffice",manageOffice);
-        return "System/officeAdd";
+        return "system/officeAdd";
     }
 
 
@@ -78,14 +78,14 @@ public class OfficeController {
             manageOffice.getParent().setOfficeName("公司部门");
         }
         model.addAttribute("manageOffice",manageOffice);
-        return "System/officeEdit";
+        return "system/officeEdit";
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     public String edit(Model model, @Valid ManageOffice manageOffice, BindingResult result, RedirectAttributes redirectAttributes){
         if (result.hasErrors()){
             model.addAttribute("manageOffice",manageOffice);
-            return "System/officeEdit";
+            return "system/officeEdit";
         }
         Integer count=service.edit(manageOffice);
         if(count>0){
@@ -93,7 +93,7 @@ public class OfficeController {
             return "redirect:/office";
         }
         model.addAttribute("manageOffice",manageOffice);
-        return "System/officeEdit";
+        return "system/officeEdit";
     }
 
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)

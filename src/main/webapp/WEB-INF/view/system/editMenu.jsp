@@ -10,11 +10,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>官网后台 | 菜单管理</title>
     <jsp:include page="../include/head.jsp"/>
+    <link href="/static/treeTable/css/jquery.treetable.css" rel="stylesheet">
+    <link href="/static/treeTable/css/jquery.treetable.theme.default.css" rel="stylesheet">
+    <script src="/static/treeTable/js/jquery.treetable.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#treeTable").treetable({ expandable: true });
+        });
+    </script>
 </head>
 
 <body>
 <div id="wrapper">
-    <jsp:include page="../include/nav.jsp"/>
+    <c:import url="/index/menuList"/>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
@@ -45,7 +54,8 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/menu/add" cssClass="form-horizontal"  modelAttribute="menu">
+                        <form:form action="/menu/edit" cssClass="form-horizontal"  modelAttribute="menu">
+                            <form:hidden path="id"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">上级菜单：</label>
                                 <div class="col-sm-5">
@@ -87,8 +97,8 @@
                                 <label class="col-sm-2 control-label">IOC图标：</label>
                                 <div class="col-sm-5">
                                     <div class="input-group">
-                                        <i class="" id="showIoc" style="font-size: 20px"></i>
-                                       <form:hidden path="ioc"/>
+                                        <i class="${menu.ioc}" id="showIoc" style="font-size: 20px"></i>
+                                        <form:hidden path="ioc"/>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iocList" id="seelctioc">
                                                 <i class="fa fa-search"></i> 选择</button>
@@ -130,7 +140,7 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">备注：</label>
-                                <div class="col-sm-5"> 
+                                <div class="col-sm-5">
                                     <form:textarea path="remarks" cssClass="form-control"/>
                                 </div>
                                 <div class="col-sm-5">
@@ -164,7 +174,7 @@
                         aria-hidden="true">×
                 </button>
                 <h4 class="modal-title" id="menuListLabel">
-                   选择菜单
+                    选择菜单
                 </h4>
             </div>
             <div class="modal-body">
@@ -484,10 +494,10 @@
 
         $("#ioctable div a").click(function () {
             $("#ioctable div a").removeClass("selectIoc");
-           $(this).addClass("selectIoc");
+            $(this).addClass("selectIoc");
         });
         $("#saveIoc").click(function () {
-          var iocClass= $(".selectIoc i").attr("class");
+            var iocClass= $(".selectIoc i").attr("class");
             $("#showIoc").addClass(iocClass);
             $("#ioc").val(iocClass);
         });
@@ -496,7 +506,7 @@
 </script>
 <style>
     .icons-box .infont  .selectIoc{
-         background: #1c84c6;
+        background: #1c84c6;
     }
     .icons-box .infont  .selectIoc i{
         color: white;

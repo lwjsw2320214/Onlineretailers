@@ -1,17 +1,17 @@
-package com.retailers.controller.System;
+package com.retailers.controller.member;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by GC on 2016/12/14.
+ * Created by 刘维军 on 2016/12/22.
  */
 @Controller
-@RequestMapping("/position")
-public class PositionController {
+@RequestMapping(value = "/member")
+public class MemberController {
 
     @RequestMapping
     public String index(){
-        return "system/position";
+        return  "member/index";
     }
 }

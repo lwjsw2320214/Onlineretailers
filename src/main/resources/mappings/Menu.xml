@@ -71,7 +71,7 @@
         show_flag=#{showFlag},
         del_flag=#{delFlag}
         WHERE id=#{id}
-        AND a.del_flag = '0'
+        AND del_flag = '0'
     </update>
 
     <update id="delete">

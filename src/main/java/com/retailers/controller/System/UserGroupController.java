@@ -51,7 +51,7 @@ public class UserGroupController extends BaseController {
         List<UserGroup> list=service.getAll();
         PageInfo<UserGroup> pageInfo=new PageInfo<UserGroup>(list);
         model.addAttribute("pageInfo",pageInfo);
-        return "System/userGroup";
+        return "system/userGroup";
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.GET)
@@ -61,7 +61,7 @@ public class UserGroupController extends BaseController {
         List<Menu> menuList=new ArrayList<Menu>();
         Menu.sortList(menuList, menuService.getAll(),"0",true);
         model.addAttribute("menuList",menuList);
-        return "System/userGroupAdd";
+        return "system/userGroupAdd";
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
@@ -81,7 +81,7 @@ public class UserGroupController extends BaseController {
         model.addAttribute("menuList",menuList);
         model.addAttribute("userGroup",userGroup);
         model.addAttribute("roleList",roleList);
-        return "System/userGroupAdd";
+        return "system/userGroupAdd";
     }
 
     @RequestMapping(value = "/edit/{id}",method = RequestMethod.GET)
@@ -94,7 +94,7 @@ public class UserGroupController extends BaseController {
         model.addAttribute("menuList",menuList);
         String roleList=roleMenuService.getAllMenuId(id);
         model.addAttribute("roleList",roleList);
-        return "System/userGroupEdit";
+        return "system/userGroupEdit";
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)

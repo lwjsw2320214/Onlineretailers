@@ -14,7 +14,7 @@
 
 <body>
 <div id="wrapper">
-    <jsp:include page="../include/nav.jsp"/>
+    <c:import url="/index/menuList"/>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">

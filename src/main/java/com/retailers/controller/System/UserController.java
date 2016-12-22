@@ -43,7 +43,7 @@ public class UserController  extends BaseController{
         List<ManageLogin> list=manageLoginService.getAll();
         PageInfo<ManageLogin> pageInfo=new PageInfo<ManageLogin>(list);
         model.addAttribute("pageInfo",pageInfo);
-        return "System/user";
+        return "system/user";
     }
 
 
@@ -59,7 +59,7 @@ public class UserController  extends BaseController{
             manageLogin.setGroup(userGroup);
         }
         model.addAttribute("manageLogin",manageLogin);
-        return "System/userAdd";
+        return "system/userAdd";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -84,14 +84,14 @@ public class UserController  extends BaseController{
             }
         }
         model.addAttribute("manageLogin",manageLogin);
-        return "System/userAdd";
+        return "system/userAdd";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String edit(@PathVariable String id, Model model){
        ManageLogin manageLogin=  manageLoginService.getUserForid(id);
        model.addAttribute("manageLogin",manageLogin);
-        return "System/userEdit";
+        return "system/userEdit";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
@@ -103,7 +103,7 @@ public class UserController  extends BaseController{
                 manageLogin.setLoginPassword(encryption.md5Encryption(manageLogin.getLoginPassword()));
             }else if (manageLogin.getLoginPassword().length()<4&&manageLogin.getLoginPassword().length()>0){
                 result.rejectValue("loginPassword","","登录密码必须为4到18位字符串！");
-                return "System/userEdit";
+                return "system/userEdit";
             }
                 Integer count=manageLoginService.edit(manageLogin);
                 if (count>0){
@@ -114,7 +114,7 @@ public class UserController  extends BaseController{
                     return "redirect:/user";
                 }
         }
-        return "System/userEdit";
+        return "system/userEdit";
     }
 
 

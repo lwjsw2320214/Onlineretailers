@@ -15,7 +15,7 @@
 
 <body>
 <div id="wrapper">
-    <jsp:include page="../include/nav.jsp"/>
+    <c:import url="/index/menuList"/>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
@@ -29,7 +29,7 @@
                         <a href="/office">部门管理</a>
                     </li>
                     <li class="active">
-                        <strong>修改部门</strong>
+                        <strong>添加部门</strong>
                     </li>
                 </ol>
             </div>
@@ -46,8 +46,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/office/edit" cssClass="form-horizontal"  modelAttribute="manageOffice">
-                            <form:hidden path="id"/>
+                        <form:form action="/office/add" cssClass="form-horizontal"  modelAttribute="manageOffice">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">上级菜单：</label>
                                 <div class="col-sm-5">
