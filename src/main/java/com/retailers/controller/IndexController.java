@@ -1,18 +1,12 @@
 package com.retailers.controller;
 
-import com.retailers.entity.LoginUser;
-import com.retailers.entity.ManageLogin;
 import com.retailers.entity.Menu;
 import com.retailers.service.MenuService;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +23,14 @@ public class IndexController {
     @RequestMapping
     public String index(Model model){
          return "index";
+    }
+
+    @RequestMapping(value = "/menuList")
+    public String menuList(Model model){
+        List<Menu> sourcelist=service.getAll();
+        List<Menu> list=new ArrayList<Menu>();
+        Menu.sortList(list,sourcelist,"0",true);
+        model.addAttribute("list",list);
+        return "System/menuPage/nav";
     }
 }
