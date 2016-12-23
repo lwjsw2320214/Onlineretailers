@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.retailers.dao.IUserMemberDao">
+
+    <sql id="fullNameColumns">
+        a.id as "id",
+        a.login_name AS "loginName",
+        a.login_password AS "loginPassword",
+        a.protection_id AS "protectionId",
+        a.protection_answer AS "protectionAnswer",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag"
+    </sql>
+
+    <select id="getAll" resultType="UserMember">
+        SELECT 
+        <include refid="fullNameColumns"/>
+        FROM user_member a
+        <where>
+            a.del_flag='0'
+            <if test="loginName!=null and loginName!=''" >
+            AND  a.login_name like CONCAT('%',#{loginName},'%')
+            </if>
+        </where>
+    </select>
+
+    <update id="delete">
+        UPDATE user_member SET
+       del_flag='1'
+       WHERE id=#{id}
+    </update>
+
+</mapper>
