@@ -9,14 +9,10 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 public class UserMember extends BaseEntity {
     @NotBlank()
-    @Length(max = 18,min = 4)
+    @Length(max = 18,min = 11)
     private  String loginName;  //登录用户名
-    @NotBlank()
-    @Length(max = 18,min = 4)
     private  String loginPassword;   //密码
-    @NotBlank()
     private  String protectionId;    //密保问题
-    @NotBlank()
     private String protectionAnswer;    //答案
 
     public String getLoginName() {

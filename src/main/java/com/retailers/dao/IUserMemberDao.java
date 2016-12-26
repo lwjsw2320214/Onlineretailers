@@ -19,9 +19,18 @@ public interface IUserMemberDao {
      * */
     UserMember getUserForLoginName(UserMember userMember);
     /**
+     * 根据id查找用户
+     * */
+    UserMember getUserForId(String id);
+    /**
      * 添加用户
      * */
     Integer add(UserMember member);
+
+    /**
+     * 修改用户
+     * */
+    Integer edit(UserMember member);
 
     /**
      * 删除用户

@@ -32,4 +32,21 @@ public class UserMemberService {
     public Integer delete(String id){
         return  dao.delete(id);
     }
+
+
+    /**
+     * 根据id查找用户
+     * */
+    public UserMember getUserForId(String id){
+        return  dao.getUserForId(id);
+    }
+
+    /**
+     * 修改用户
+     * */
+    @Transactional(readOnly = false)
+    public Integer edit(UserMember member){
+        return  dao.edit(member);
+    }
+
 }

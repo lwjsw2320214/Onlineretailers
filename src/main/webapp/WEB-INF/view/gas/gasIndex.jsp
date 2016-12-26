@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>官网后台 | 会员管理</title>
+    <title>官网后台 | 煤气表管理</title>
     <jsp:include page="../include/head.jsp"/>
 </head>
 
@@ -18,13 +18,13 @@
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>会员管理</h2>
+                <h2>煤气表管理</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="/index">首页</a>
                     </li>
                     <li class="active">
-                        <strong>会员管理</strong>
+                        <strong>煤气表管理</strong>
                     </li>
                 </ol>
             </div>
@@ -35,16 +35,20 @@
         <div class="wrapper wrapper-content animated fadeInRight ecommerce">
             <div class="ibox-content m-b-sm border-bottom">
                 <div class="row">
-                    <form class="form-horizontal" action="/member" method="get">
-                    <div class="form-group">
-                    <label class="col-lg-1 control-label"> 登录手机：</label>
-                    <div class="col-lg-2">
-                      <input type="text" name="loginName"  value="${userMember.loginName}" class="form-control">
-                    </div>
-                    <div class="col-lg-9 text-right">
-                        <button type="submit" class="btn btn-w-m btn-default">搜索</button>
-                    </div>
-                    </div>
+                    <form class="form-horizontal" action="/gas" method="get">
+                        <div class="form-group">
+                            <label class="col-lg-1 control-label"> 煤气表号：</label>
+                            <div class="col-lg-2">
+                                <input type="text" name="gasNumber"  value="${gas.gasNumber}" class="form-control">
+                            </div>
+                            <label class="col-lg-1 control-label"> 用户：</label>
+                            <div class="col-lg-2">
+                                <input type="text" name="userMember.loginName"  value="${gas.userMember.loginName}" class="form-control">
+                            </div>
+                            <div class="col-lg-6 text-right">
+                                <button type="submit" class="btn btn-w-m btn-default">搜索</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -61,20 +65,15 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
                                 <thead style="font-size: 12px">
                                 <tr>
-                                    <th >登录手机</th>
-                                    <th class="text-right" style="width: 18%">操作</th>
+                                    <th >煤气表号</th>
+                                    <th style="width: 20%">用户</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${pageInfo.list}"  var="member">
+                                <c:forEach items="${pageInfo.list}"  var="gas">
                                     <tr >
-                                        <td>${member.loginName}</td>
-                                        <td class="text-right">
-                                            <div class="btn-group">
-                                                <a class="btn btn-default btn-sm" href="/member/edit/${member.id}"><i class="fa fa-paste"></i> 修改</a>
-                                                <a class="btn btn-default btn-sm" href="/member/delete/${member.id}" onclick="if(confirm( '您确定要删除吗？')==false)return   false;"><i class="fa fa-trash"></i> 删除</a>
-                                            </div>
-                                        </td>
+                                        <td>${gas.gasNumber}</td>
+                                        <td>${gas.userMember.loginName}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.retailers.dao.IGasDao">
+
+    <sql id="fullNameColumns">
+        a.id AS "id",
+        a.gas_number AS "gasNumber",
+        a.user_id AS "userId",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag",
+        b.login_name AS "userMember.loginName"
+    </sql>
+
+    <sql id="leftJoin">
+        LEFT JOIN user_member b ON  a.user_id=b.id
+    </sql>
+
+
+    <select id="getAll" resultType="Gas">
+        SELECT
+        <include refid="fullNameColumns"/>
+        FROM  gas a
+        <include refid="leftJoin"/>
+        <where>
+          a.del_flag='0'
+          AND  b.del_flag='0'
+            <if test="gasNumber!=null and gasNumber!=''">
+               AND a.gas_number like CONCAT('%',#{gasNumber},'%')
+            </if>
+            <if test="userMember!=null and userMember.loginName!=''">
+              AND  b.login_name like CONCAT('%',#{userMember.loginName},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

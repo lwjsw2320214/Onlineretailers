@@ -24,6 +24,23 @@
         </where>
     </select>
 
+    <select id="getUserForId" resultType="UserMember">
+        SELECT
+        <include refid="fullNameColumns"/>
+        FROM user_member a
+        <where>
+            a.del_flag='0'
+            AND a.id=#{id}
+        </where>
+    </select>
+
+    <update id="edit">
+         UPDATE user_member SET
+          login_name=#{loginName}
+          WHERE id=#{id}
+          AND  del_flag='0'
+    </update>
+
     <update id="delete">
         UPDATE user_member SET
        del_flag='1'
