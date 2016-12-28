@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2016-12-27 18:00:34
+Date: 2016-12-28 16:58:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -59,7 +59,7 @@ CREATE TABLE `manage_login` (
 -- ----------------------------
 -- Records of manage_login
 -- ----------------------------
-INSERT INTO `manage_login` VALUES ('1', 'admin', 'cQ2K/SxXPU/oRJsuQyBC2Q==', '刘维军', 'fd3a74d58e7e431189e73c23dd504a46', null, '', '', '', 'cc5f37cd6f1a4da9a54810a24898ff7a', '', '0', '0');
+INSERT INTO `manage_login` VALUES ('1', 'admin', 'gnzLDuqKcGxMNKFokfhOew==', '刘维军', 'fd3a74d58e7e431189e73c23dd504a46', null, '', '', '', 'cc5f37cd6f1a4da9a54810a24898ff7a', '', '0', '0');
 
 -- ----------------------------
 -- Table structure for `manage_office`
@@ -161,8 +161,8 @@ CREATE TABLE `order` (
   `first_scale` int(11) DEFAULT NULL COMMENT '开始度数',
   `last_scale` int(11) DEFAULT NULL COMMENT '结束度数',
   `total` int(11) DEFAULT NULL COMMENT '总用度数',
-  `unit_price` decimal(10,0) DEFAULT NULL COMMENT '单价',
-  `payment_amount` decimal(10,0) DEFAULT NULL COMMENT '支付金额',
+  `unit_price` decimal(10,2) DEFAULT NULL COMMENT '单价',
+  `payment_amount` decimal(10,2) DEFAULT NULL COMMENT '支付金额',
   `first_time` datetime DEFAULT NULL COMMENT '度数开始时间',
   `create_time` datetime DEFAULT NULL COMMENT '添加订单时间，度数结束时间',
   `payment_state` int(11) DEFAULT NULL COMMENT '支付状态',
@@ -177,6 +177,7 @@ CREATE TABLE `order` (
 -- ----------------------------
 -- Records of order
 -- ----------------------------
+INSERT INTO `order` VALUES ('111', '2205256356425345', '22052563564253451612', '123', '234', '111', '2.50', '277.50', '2016-12-14 14:57:08', '2016-12-28 14:57:13', '0', '0', null, null, null, '0');
 
 -- ----------------------------
 -- Table structure for `protection`
