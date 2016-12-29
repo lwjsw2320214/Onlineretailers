@@ -10,10 +10,31 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2016-12-28 16:58:54
+Date: 2016-12-29 17:03:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `article`
+-- ----------------------------
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
+  `id` varchar(64) NOT NULL DEFAULT '',
+  `title` varchar(200) DEFAULT NULL COMMENT '标题',
+  `imges` varchar(200) DEFAULT NULL COMMENT '简介图片',
+  `brief_introduction` varchar(500) DEFAULT NULL COMMENT '简介',
+  `content` longtext COMMENT '内容',
+  `news_type` int(11) DEFAULT NULL COMMENT '文章类别',
+  `create_time` date DEFAULT NULL COMMENT '创建时间',
+  `remarks` varchar(200) DEFAULT NULL,
+  `del_flag` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of article
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `gas`
@@ -144,11 +165,12 @@ INSERT INTO `menu` VALUES ('4885d9418d614abcac26f16c57c5c57e', '价格设置', '
 INSERT INTO `menu` VALUES ('5', '部门管理', '/office', 'fa fa-university', '1', null, '4', '部门管理', '1', '0');
 INSERT INTO `menu` VALUES ('6', '字典管理', '/dictionary', 'fa fa-book', '1', null, '5', '字典管理', '1', '0');
 INSERT INTO `menu` VALUES ('731eca6fc36c4b6588d5c34858255ba0', '新闻管理', '', 'fa fa-calendar-o', '0', '', '6', '', '1', '1');
-INSERT INTO `menu` VALUES ('7bcff0bca2c14540a3b516eb89b7b856', '公司新闻', '', 'fa fa-globe', '3cca2bfd41df4902a4f150b15a16209f', '', '1', '', '1', '0');
+INSERT INTO `menu` VALUES ('7bcff0bca2c14540a3b516eb89b7b856', '行业新闻', '/article/news', 'fa fa-globe', '3cca2bfd41df4902a4f150b15a16209f', '', '1', '', '1', '0');
 INSERT INTO `menu` VALUES ('8', '首页', '/index', 'fa fa-home', '0', null, '1', '首页', '1', '0');
 INSERT INTO `menu` VALUES ('aeaf6f108ab74c2ebe27838c39139169', '煤气表管理', '/gas', 'fa fa-dashboard', '0', '', '3', '', '1', '0');
 INSERT INTO `menu` VALUES ('ea85aed490e3436189cd1f973118611f', '衣服', '/product', 'fa fa-laptop', '0fa93d719b39470baebab00d96a2d0fc', '', '1', '', '1', '0');
 INSERT INTO `menu` VALUES ('ede902c6fa97470b8e1f946a0c4e7473', '会员管理', '/member', 'fa fa-users', '0', '', '2', '', '1', '0');
+INSERT INTO `menu` VALUES ('f2e5b394020d4056931fc580b61cb715', '用气须知', '/article/notice', 'fa fa-globe', '3cca2bfd41df4902a4f150b15a16209f', '', '2', '', '1', '0');
 
 -- ----------------------------
 -- Table structure for `order`
@@ -177,7 +199,7 @@ CREATE TABLE `order` (
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('111', '2205256356425345', '22052563564253451612', '123', '234', '111', '2.50', '277.50', '2016-12-14 14:57:08', '2016-12-28 14:57:13', '0', '0', null, null, null, '0');
+INSERT INTO `order` VALUES ('111', '2205256356425345', '22052563564253451612', '123', '234', '111', '2.50', '277.50', '2016-12-14 14:57:08', '2016-12-28 14:57:13', '0', null, null, null, null, '0');
 
 -- ----------------------------
 -- Table structure for `protection`
