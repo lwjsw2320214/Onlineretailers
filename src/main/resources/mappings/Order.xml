@@ -33,6 +33,9 @@
             <if test="orderNumber!=null and orderNumber!=''">
                AND a.order_number=#{orderNumber}
             </if>
+            <if test="paymentState!=null">
+                AND a.payment_state=#{paymentState}
+            </if>
         </where>
     </select>
 

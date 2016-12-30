@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/article/newsAdd" cssClass="form-horizontal"  modelAttribute="article">
+                        <form:form action="/article/newsAdd" cssClass="form-horizontal dropzone"  modelAttribute="article">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">新问标题：</label>
                                 <div class="col-sm-5">
@@ -68,20 +68,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">略缩图片：</label>
                                 <div class="col-sm-5">
-                                    <span class="btn btn-success fileinput-button">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                        <span>Select files...</span>
-                                        <input id="fileupload" type="file" name="files[]" multiple>
-                                    </span>
-                                    <!-- The global progress bar -->
-                                    <div id="progress" class="progress">
-                                        <div class="progress-bar progress-bar-success"></div>
-                                    </div>
-                                    <!-- The container for the uploaded files -->
-                                    <div id="files" class="files"></div>
-                                        <form:hidden path="imges" cssClass="form-control"/>
-                                </div>
-                                <div class="col-sm-5">
+                                    <div id="queue"></div>
+                                    <input id="file_upload" name="file_upload" type="file" multiple="true">
                                     <form:errors path="imges" cssClass="alert-danger"/>
                                 </div>
                             </div>
@@ -167,32 +155,27 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<link href="/static/fileupload/css/jquery.fileupload.css"  rel="stylesheet">
-<script src="/static/fileupload/js/jquery.iframe-transport.js" type="application/javascript"/>
-<script src="/static/fileupload/js/jquery.fileupload.js"  type="application/javascript"/>
-<script>
-    $(function () {
-        'use strict';
-        // Change this to the location of your server-side upload handler:
-        var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : 'server/php/';
-        $('#fileupload').fileupload({
-            url: url,
-            dataType: 'json',
-            done: function (e, data) {
-                $.each(data.result.files, function (index, file) {
-                    $('<p/>').text(file.name).appendTo('#files');
-                });
-            },
-            progressall: function (e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .progress-bar').css(
-                        'width',
-                        progress + '%'
-                );
-            }
-        }).prop('disabled', !$.support.fileInput)
-                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+ <link href="/static/fileupload/uploadify.css" rel="stylesheet"/>
+<script src="/static/fileupload/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#file_upload').uploadify({
+            'fileSizeLimit' : '30KB',
+            'button_image_url':'/static/fileupload/up.png',
+            'swf'      : '/static/fileupload/uploadify.swf',
+            'uploader' : '/article/imgAdd',
+            //按钮显示的文字
+            'buttonText': '',
+            //显示的高度和宽度，默认 height 30；width 120
+            'height': 36,
+            'width': 130,
+            //上传文件的类型  默认为所有文件    'All Files'  ;  '*.*'
+            //在浏览窗口底部的文件类型下拉菜单中显示的文本
+            'fileTypeDesc': 'Image Files',
+            //允许上传的文件后缀
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'multi': false
+        });
     });
 </script>
 </body>
