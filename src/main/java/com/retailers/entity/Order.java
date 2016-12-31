@@ -1,7 +1,11 @@
 package com.retailers.entity;
 
 import com.retailers.common.Base.BaseEntity;
+import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -10,11 +14,18 @@ import java.util.Date;
  */
 public class Order extends BaseEntity {
 
+    @NotBlank(message = "编号不能为空")
     private String gasNumber;
+    @NotBlank(message = "订单号不能为空")
     private String orderNumber;
+    @Max(value = 9999,message = "最大只能为9999")
+    @Min(value = 0,message = "最小只能为0")
     private Integer firstScale;
+    @Max(value = 9999,message = "最大只能为9999")
+    @Min(value = 0,message = "最小只能为0")
     private Integer lastScale;
     private Integer total;
+    @DecimalMin(value ="0",message = "")
     private BigDecimal unitPrice;
     private BigDecimal paymentAmount;
     private Date firstTime;
@@ -22,6 +33,7 @@ public class Order extends BaseEntity {
     private Integer paymentState;
     private Integer paymentType;
     private String paymentAccount;
+    private BigDecimal actualPayment;
     private Date paymentTime;
 
     public String getGasNumber() {
@@ -126,5 +138,12 @@ public class Order extends BaseEntity {
 
     public void setPaymentTime(Date paymentTime) {
         this.paymentTime = paymentTime;
+    }
+
+    public BigDecimal getActualPayment() {
+        return actualPayment;
+    }
+    public void setActualPayment(BigDecimal actualPayment) {
+        this.actualPayment = actualPayment;
     }
 }

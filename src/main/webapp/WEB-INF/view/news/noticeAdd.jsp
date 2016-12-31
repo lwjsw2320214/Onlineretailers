@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>官网后台 | 新闻添加</title>
+    <title>官网后台 | 用气须知</title>
     <jsp:include page="../include/newHead.jsp"/>
 </head>
 
@@ -19,13 +19,13 @@
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>新闻添加</h2>
+                <h2>用气须知</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="/index">首页</a>
                     </li>
                     <li>
-                        <a href="/article/news">新闻管理</a>
+                        <a href="/article/notice">用气须知</a>
                     </li>
                     <li class="active">
                         <strong>新闻添加</strong>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/article/newsAdd" cssClass="form-horizontal dropzone"  modelAttribute="article">
+                        <form:form action="/article/noticeAdd" cssClass="form-horizontal dropzone"  modelAttribute="article">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">新问标题：</label>
                                 <div class="col-sm-5">

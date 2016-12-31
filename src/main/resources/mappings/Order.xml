@@ -17,6 +17,7 @@
         a.payment_type AS "paymentType",
         a.payment_account AS "paymentAccount",
         a.payment_time AS "paymentTime",
+        a.actual_payment AS "actualPayment",
         a.remarks AS "remarks",
         a.del_flag AS "delFlag"
     </sql>
@@ -37,6 +38,7 @@
                 AND a.payment_state=#{paymentState}
             </if>
         </where>
+        ORDER  BY  a.create_time DESC
     </select>
 
     <select id="getOrder" resultType="Order">
@@ -48,5 +50,11 @@
             AND a.id=#{id}
         </where>
     </select>
+
+    <update id="edit">
+        UPDATE `order`  SET
+        payment_state=#{paymentState}
+        WHERE  id=#{id}
+    </update>
     
 </mapper>

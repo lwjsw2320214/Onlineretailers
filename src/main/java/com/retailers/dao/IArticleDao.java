@@ -14,4 +14,25 @@ public interface IArticleDao {
      * */
      List<Article> getAllList(Article article);
 
+     /**
+      * 添加文章
+      * */
+     Integer add(Article article);
+
+     /**
+      * 根据id获取文章
+      * */
+     Article getArticleForId(Article article);
+
+
+     /**
+      * 修改文章
+      * */
+     Integer edit(Article article);
+
+     /**
+      * 删除
+      * */
+     Integer delete(Article article);
+
 }

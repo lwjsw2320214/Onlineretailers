@@ -2,21 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : 127.0.0.1
-Source Server Version : 50626
+Source Server Version : 50716
 Source Host           : localhost:3306
 Source Database       : online
 
 Target Server Type    : MYSQL
-Target Server Version : 50626
+Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2016-12-30 14:14:24
+Date: 2016-12-31 23:03:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `article`
+-- Table structure for article
 -- ----------------------------
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
@@ -26,7 +26,7 @@ CREATE TABLE `article` (
   `brief_introduction` varchar(500) DEFAULT NULL COMMENT '简介',
   `content` longtext COMMENT '内容',
   `news_type` int(11) DEFAULT NULL COMMENT '文章类别',
-  `create_time` date DEFAULT NULL COMMENT '创建时间',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `remarks` varchar(200) DEFAULT NULL,
   `del_flag` char(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -35,9 +35,13 @@ CREATE TABLE `article` (
 -- ----------------------------
 -- Records of article
 -- ----------------------------
+INSERT INTO `article` VALUES ('47adb97e4aa0420c8cf0b48acf3e2554', '储蓄额cse', 'http://106.14.30.163:8080/gasfile/2016-12-31/45be775511644ed08ff1d0145c29f390.jpg', '储蓄额cse储蓄额cse储蓄额cse储蓄额cse', '<p>储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse储蓄额cse<br></p>', '1', '2016-12-31 19:10:36', null, '0');
+INSERT INTO `article` VALUES ('7516dec6e21b46e7988601bcbe8f5036', '测试测试测试测试测试测试', 'http://106.14.30.163:8080/gasfile/2016-12-31/3ea0face5437453dbf85f4191ccb54af.jpg', '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试', '<p>储蓄额储蓄额储蓄额储蓄额而微软微软fdwsef sefwserwe</p><p>qwerwerwerwerwaertgszdfgsdfg</p><p>储蓄额储蓄额储蓄额储蓄额而微软微软fdwsef sefwserwe</p><p>qwerwerwerwerwaertgszdfgsdfg</p><p>储蓄额储蓄额储蓄额储蓄额而微软微软fdwsef sefwserwe</p><p>qwerwerwerwerwaertgszdfgsdfg</p>', '1', '2016-12-31 00:00:00', null, '0');
+INSERT INTO `article` VALUES ('e2c54942561549c4924c7c994f5e77c8', '用气须知  ', 'http://106.14.30.163:8080/gasfile/2016-12-31/a5b52564883a4870b67710e17189534d.jpg', '用气须知  用气须知  用气须知  ', '用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;<div>用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;<br></div><div><br></div><div>用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;用气须知 &nbsp;<br></div>', '2', '2016-12-31 20:03:59', null, '1');
+INSERT INTO `article` VALUES ('f6fe5aae96084f30b9e759e7545bb89e', '测试2测试2测试2测试2测试2测试2', 'http://106.14.30.163:8080/gasfile/2016-12-31/071a9e48c9be4d1685662d27c88f27a7.jpg', '测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2', '<p>测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2<br></p><p><br></p><p>测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2<br></p><p>测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2<br></p>', '2', '2016-12-31 20:06:52', null, '0');
 
 -- ----------------------------
--- Table structure for `gas`
+-- Table structure for gas
 -- ----------------------------
 DROP TABLE IF EXISTS `gas`;
 CREATE TABLE `gas` (
@@ -57,7 +61,7 @@ INSERT INTO `gas` VALUES ('222', '2', '7d77f61524614ca09e03a69312b7e100', null, 
 INSERT INTO `gas` VALUES ('2222', '3', '7d77f61524614ca09e03a69312b7e101', null, '0');
 
 -- ----------------------------
--- Table structure for `manage_login`
+-- Table structure for manage_login
 -- ----------------------------
 DROP TABLE IF EXISTS `manage_login`;
 CREATE TABLE `manage_login` (
@@ -83,7 +87,7 @@ CREATE TABLE `manage_login` (
 INSERT INTO `manage_login` VALUES ('1', 'admin', 'gnzLDuqKcGxMNKFokfhOew==', '刘维军', 'fd3a74d58e7e431189e73c23dd504a46', null, '', '', '', 'cc5f37cd6f1a4da9a54810a24898ff7a', '', '0', '0');
 
 -- ----------------------------
--- Table structure for `manage_office`
+-- Table structure for manage_office
 -- ----------------------------
 DROP TABLE IF EXISTS `manage_office`;
 CREATE TABLE `manage_office` (
@@ -116,7 +120,7 @@ INSERT INTO `manage_office` VALUES ('f915bda1c326491d90548ada44a0bdc4', '销售�
 INSERT INTO `manage_office` VALUES ('fd3a74d58e7e431189e73c23dd504a46', 'WEB研发部', '6d195583e49c4b03a23f876af24137a0', null, '0');
 
 -- ----------------------------
--- Table structure for `manage_position`
+-- Table structure for manage_position
 -- ----------------------------
 DROP TABLE IF EXISTS `manage_position`;
 CREATE TABLE `manage_position` (
@@ -134,7 +138,7 @@ CREATE TABLE `manage_position` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `menu`
+-- Table structure for menu
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu` (
@@ -173,7 +177,7 @@ INSERT INTO `menu` VALUES ('ede902c6fa97470b8e1f946a0c4e7473', '会员管理', '
 INSERT INTO `menu` VALUES ('f2e5b394020d4056931fc580b61cb715', '用气须知', '/article/notice', 'fa fa-globe', '3cca2bfd41df4902a4f150b15a16209f', '', '2', '', '1', '0');
 
 -- ----------------------------
--- Table structure for `order`
+-- Table structure for order
 -- ----------------------------
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
@@ -190,6 +194,7 @@ CREATE TABLE `order` (
   `payment_state` int(11) DEFAULT NULL COMMENT '支付状态',
   `payment_type` int(11) DEFAULT NULL COMMENT '支付方式',
   `payment_account` varchar(200) DEFAULT NULL COMMENT '支付账号',
+  `actual_payment` decimal(2,0) DEFAULT '0' COMMENT '实际支付金额',
   `payment_time` datetime DEFAULT NULL COMMENT '支付时间',
   `remarks` varchar(500) DEFAULT NULL,
   `del_flag` char(1) DEFAULT NULL,
@@ -199,13 +204,13 @@ CREATE TABLE `order` (
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('111', '2205256356425345', '22052563564253451612', '123', '234', '111', '2.50', '277.50', '2016-12-14 14:57:08', '2016-12-28 14:57:13', '0', null, null, null, null, '0');
-INSERT INTO `order` VALUES ('222', '2205256356425345', '22052563564253451611', '123', '234', '111', '2.50', '277.50', '2016-10-20 11:45:38', '2016-12-14 11:45:45', '0', null, null, null, null, '0');
-INSERT INTO `order` VALUES ('29952d444038497087c220908d0072e8', '2205256356425345', '2205256356425345201612', '234', '5000', '4766', '2.45', '11676.70', '2016-12-28 14:57:13', '2016-12-30 13:56:49', '0', null, null, null, null, '0');
-INSERT INTO `order` VALUES ('bbda095e862046f38ea827041c6704bb', '2205256356425346', '2205256356425346201612', '5000', '5000', '0', '2.45', '0.00', '2016-12-30 13:59:22', '2016-12-30 13:59:22', '1', null, null, null, null, '0');
+INSERT INTO `order` VALUES ('111', '2205256356425345', '22052563564253451612', '123', '234', '111', '2.50', '277.50', '2016-12-14 14:57:08', '2016-12-28 14:57:13', '0', null, null, null, null, null, '0');
+INSERT INTO `order` VALUES ('222', '2205256356425345', '22052563564253451611', '123', '234', '111', '2.50', '277.50', '2016-10-20 11:45:38', '2016-12-14 11:45:45', '0', null, null, null, null, null, '0');
+INSERT INTO `order` VALUES ('29952d444038497087c220908d0072e8', '2205256356425345', '2205256356425345201612', '234', '5000', '4766', '2.45', '11676.70', '2016-12-28 14:57:13', '2016-12-30 13:56:49', '0', null, null, null, null, null, '0');
+INSERT INTO `order` VALUES ('bbda095e862046f38ea827041c6704bb', '2205256356425346', '2205256356425346201612', '5000', '5000', '0', '2.45', '0.00', '2016-12-30 13:59:22', '2016-12-30 13:59:22', '0', null, null, null, null, null, '0');
 
 -- ----------------------------
--- Table structure for `protection`
+-- Table structure for protection
 -- ----------------------------
 DROP TABLE IF EXISTS `protection`;
 CREATE TABLE `protection` (
@@ -221,7 +226,7 @@ CREATE TABLE `protection` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `role`
+-- Table structure for role
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
@@ -244,7 +249,7 @@ INSERT INTO `role` VALUES ('cc5f37cd6f1a4da9a54810a24898ff7a', '超级管理员'
 INSERT INTO `role` VALUES ('d06a24d42cda425bb99b904b5acc695f', '产品经理', '测试2', '1');
 
 -- ----------------------------
--- Table structure for `role_menu`
+-- Table structure for role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `role_menu`;
 CREATE TABLE `role_menu` (
@@ -278,7 +283,7 @@ INSERT INTO `role_menu` VALUES ('f05f8088bc6746eda530ce7375f6976c', '3123dc2436c
 INSERT INTO `role_menu` VALUES ('f21c6581cf9042049f41de20a212434f', '3123dc2436cb4eb896a84bc60ef8f93c', '4');
 
 -- ----------------------------
--- Table structure for `setting_price`
+-- Table structure for setting_price
 -- ----------------------------
 DROP TABLE IF EXISTS `setting_price`;
 CREATE TABLE `setting_price` (
@@ -295,7 +300,7 @@ CREATE TABLE `setting_price` (
 INSERT INTO `setting_price` VALUES ('96b4818ef2564106a86e1aabdbd6bc73', '2.45', '测试价格', '0');
 
 -- ----------------------------
--- Table structure for `user_member`
+-- Table structure for user_member
 -- ----------------------------
 DROP TABLE IF EXISTS `user_member`;
 CREATE TABLE `user_member` (

@@ -17,4 +17,9 @@ public interface IOrderDao {
      * 根据id查询订单
      * */
     Order getOrder(String id);
+
+    /**
+     * 修改订单状态
+     * */
+    Integer edit(Order order);
 }

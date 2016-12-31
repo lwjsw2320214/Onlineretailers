@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>官网后台 | 新闻添加</title>
+    <title>官网后台 | 用气须知</title>
     <jsp:include page="../include/newHead.jsp"/>
 </head>
 
@@ -19,16 +19,16 @@
         <jsp:include page="../include/navbar.jsp"/>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>新闻添加</h2>
+                <h2>用气须知</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="/index">首页</a>
                     </li>
                     <li>
-                        <a href="/article/news">新闻管理</a>
+                        <a href="/article/notice">用气须知</a>
                     </li>
                     <li class="active">
-                        <strong>新闻添加</strong>
+                        <strong>新闻编辑</strong>
                     </li>
                 </ol>
             </div>
@@ -41,11 +41,12 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>新闻添加</h5>
+                            <h5>新闻编辑</h5>
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form:form action="/article/newsAdd" cssClass="form-horizontal dropzone"  modelAttribute="article">
+                        <form:form action="/article/noticeEdit" cssClass="form-horizontal dropzone"  modelAttribute="article">
+                            <form:hidden path="id"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">新问标题：</label>
                                 <div class="col-sm-5">
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">新闻简介：</label>
+                                <label class="col-sm-2 control-label">新问简介：</label>
                                 <div class="col-sm-5">
                                     <form:textarea path="briefIntroduction" cssClass="form-control"/>
                                 </div>
@@ -81,7 +82,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">新闻内容：</label>
                                 <div class="col-sm-8 ">
-                                    <div class="summernote"></div>
+                                    <div class="summernote">${article.content}</div>
                                 </div>
                                 <div class="col-sm-2">
                                     <input type="hidden" id="content" name="content" value=""/>

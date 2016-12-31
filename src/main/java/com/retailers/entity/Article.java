@@ -1,6 +1,7 @@
 package com.retailers.entity;
 
 import com.retailers.common.Base.BaseEntity;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.Date;
 
@@ -9,9 +10,13 @@ import java.util.Date;
  */
 public class Article extends BaseEntity {
 
+    @NotBlank(message = "新闻标题不能为空")
     private String title;
+    @NotBlank(message = "略缩图不能为空")
     private String imges;
+    @NotBlank(message = "文章简介不能为空")
     private String briefIntroduction;
+    @NotBlank(message = "文章内容不能为空")
     private String content;
     private Integer newsType;
     private Date createTime;

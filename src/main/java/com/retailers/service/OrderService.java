@@ -32,4 +32,12 @@ public class OrderService {
     public Order getOrder(String id){
         return  dao.getOrder(id);
     }
+
+    /**
+     * 修改订单状态
+     * */
+    @Transactional(readOnly = false)
+    public Integer edit(Order order){
+        return dao.edit(order);
+    }
 }
