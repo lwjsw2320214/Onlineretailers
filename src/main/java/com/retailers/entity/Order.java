@@ -18,10 +18,10 @@ public class Order extends BaseEntity {
     private String gasNumber;
     @NotBlank(message = "订单号不能为空")
     private String orderNumber;
-    @Max(value = 9999,message = "最大只能为9999")
+    @Max(value = 99999,message = "最大只能为99999")
     @Min(value = 0,message = "最小只能为0")
     private Integer firstScale;
-    @Max(value = 9999,message = "最大只能为9999")
+    @Max(value = 99999,message = "最大只能为99999")
     @Min(value = 0,message = "最小只能为0")
     private Integer lastScale;
     private Integer total;
