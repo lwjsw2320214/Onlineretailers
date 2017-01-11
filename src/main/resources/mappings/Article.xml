@@ -48,7 +48,7 @@
 
     <update id="edit">
         UPDATE article SET
-        title=#{title},brief_introduction=#{briefIntroduction},content=#{content}
+        title=#{title},brief_introduction=#{briefIntroduction},imges=#{imges},content=#{content}
         WHERE id=#{id}
         AND del_flag='0'
     </update>
