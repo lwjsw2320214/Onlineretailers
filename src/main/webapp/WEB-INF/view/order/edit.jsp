@@ -86,6 +86,18 @@
                             <div class="col-lg-1 text-right">支付日期：</div>
                             <div class="col-lg-5"><fmt:formatDate value="${order.paymentTime}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
                         </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="row">
+                                <div class="col-lg-1 text-right">本年度年检照片：</div>
+                                <div class="col-lg-10">
+                                <c:if test="${yi.gasImg==null}">
+                                    未上传
+                                </c:if>
+                                    <c:if test="${yi.gasImg!=null}">
+                                        <img src="${yi.gasImg}" style="width: 200px;height: 200px;"/>
+                                    </c:if>
+                                </div>
+                            </div>
                         <div class="hr-line-dashed"></div>
                         <div class="row">
                             <div class="col-lg-12 text-center">

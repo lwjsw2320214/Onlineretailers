@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.retailers.dao.IYearlyInspectionDao">
+
+    <sql id="fullNameColumns">
+        a.id AS "id",
+        a.year AS "year",
+        a.gas_number AS "gasNumber",
+        a.gas_img AS "gasImg",
+        a.create_time AS "createTime",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag"
+    </sql>
+
+    <sql id="joinTable">
+    </sql>
+
+
+    <select id="getYearlyInspection" resultType="YearlyInspection">
+        SELECT
+         <include refid="fullNameColumns"/>
+         FROM yearly_inspection a
+        WHERE  a.gas_number=#{gasNumber} AND a.year=#{year}
+    </select>
+
+</mapper>

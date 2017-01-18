@@ -7,7 +7,9 @@ import com.retailers.common.DateUtils;
 import com.retailers.entity.LoginUser;
 import com.retailers.entity.ManageLogin;
 import com.retailers.entity.Order;
+import com.retailers.entity.YearlyInspection;
 import com.retailers.service.OrderService;
+import com.retailers.service.YearlyInspectionService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -33,6 +35,8 @@ public class OrderController extends BaseController {
 
     @Autowired
     OrderService service;
+    @Autowired
+    YearlyInspectionService yearlyInspectionService;
 
     @RequestMapping
     public String index(Model model, HttpServletRequest request, Order order){
@@ -53,6 +57,11 @@ public class OrderController extends BaseController {
     public String info(@PathVariable String id,Model model){
         Order order=service.getOrder(id);
         model.addAttribute("order",order);
+        YearlyInspection y=new YearlyInspection();
+        y.setGasNumber(order.getGasNumber());
+        y.setYear(Integer.parseInt(DateUtils.getYear(order.getCreateTime())));
+        YearlyInspection yi= yearlyInspectionService.getYearlyInspection(y);
+        model.addAttribute("yi",yi);
         return "order/info";
     }
 
@@ -60,6 +69,11 @@ public class OrderController extends BaseController {
     public String edit(@PathVariable String id,Model model){
         Order order=service.getOrder(id);
         model.addAttribute("order",order);
+        YearlyInspection y=new YearlyInspection();
+        y.setGasNumber(order.getGasNumber());
+        y.setYear(Integer.parseInt(DateUtils.getYear(order.getCreateTime())));
+        YearlyInspection yi= yearlyInspectionService.getYearlyInspection(y);
+        model.addAttribute("yi",yi);
         return "order/edit";
     }
 
@@ -75,6 +89,11 @@ public class OrderController extends BaseController {
         }
         order=service.getOrder(order.getId());
         model.addAttribute("order",order);
+        YearlyInspection y=new YearlyInspection();
+        y.setGasNumber(order.getGasNumber());
+        y.setYear(Integer.parseInt(DateUtils.getYear(order.getCreateTime())));
+        YearlyInspection yi= yearlyInspectionService.getYearlyInspection(y);
+        model.addAttribute("yi",yi);
         return "order/edit";
     }
 

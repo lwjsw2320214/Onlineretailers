@@ -77,6 +77,10 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		return formatDate(new Date(), "yyyy");
 	}
 
+	public static String getYear(Date date) {
+		return formatDate(date, "yyyy");
+	}
+
 	/**
 	 * 得到当前月份字符串 格式（MM）
 	 */

@@ -85,6 +85,18 @@
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="row">
+                            <div class="col-lg-1 text-right">本年度年检照片：</div>
+                            <div class="col-lg-10">
+                                <c:if test="${yi.gasImg==null}">
+                                    未上传
+                                </c:if>
+                                <c:if test="${yi.gasImg!=null}">
+                                    <img src="${yi.gasImg}" style="width: 200px;height: 200px;"/>
+                                </c:if>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="row">
                             <div class="col-lg-12 text-center">
                                 <button type="button" class="btn btn-outline btn-default" onclick="javascript:history.back();">返回</button>
                             </div>
